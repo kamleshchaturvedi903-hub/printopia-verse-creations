@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BusinessGiftsRouteImport } from './routes/business-gifts'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as PersonalizedFigurinesRouteImport } from './routes/personalized-figurines'
 import { Route as CategorySlugRouteImport } from './routes/category.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
@@ -23,6 +27,26 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessGiftsRoute = BusinessGiftsRouteImport.update({
+  id: '/business-gifts',
+  path: '/business-gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PersonalizedFigurinesRoute = PersonalizedFigurinesRouteImport.update({
+  id: '/personalized-figurines',
+  path: '/personalized-figurines',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CategorySlugRoute = CategorySlugRouteImport.update({
@@ -44,6 +68,10 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/business-gifts': typeof BusinessGiftsRoute
+  '/gallery': typeof GalleryRoute
+  '/our-story': typeof OurStoryRoute
+  '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -51,6 +79,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/business-gifts': typeof BusinessGiftsRoute
+  '/gallery': typeof GalleryRoute
+  '/our-story': typeof OurStoryRoute
+  '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products': typeof ProductsIndexRoute
@@ -59,6 +91,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/business-gifts': typeof BusinessGiftsRoute
+  '/gallery': typeof GalleryRoute
+  '/our-story': typeof OurStoryRoute
+  '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -66,13 +102,34 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/category/$slug' | '/products/$slug' | '/products/'
+    | '/'
+    | '/about'
+    | '/business-gifts'
+    | '/gallery'
+    | '/our-story'
+    | '/personalized-figurines'
+    | '/category/$slug'
+    | '/products/$slug'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/category/$slug' | '/products/$slug' | '/products'
+  to:
+    | '/'
+    | '/about'
+    | '/business-gifts'
+    | '/gallery'
+    | '/our-story'
+    | '/personalized-figurines'
+    | '/category/$slug'
+    | '/products/$slug'
+    | '/products'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/business-gifts'
+    | '/gallery'
+    | '/our-story'
+    | '/personalized-figurines'
     | '/category/$slug'
     | '/products/$slug'
     | '/products/'
@@ -81,6 +138,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BusinessGiftsRoute: typeof BusinessGiftsRoute
+  GalleryRoute: typeof GalleryRoute
+  OurStoryRoute: typeof OurStoryRoute
+  PersonalizedFigurinesRoute: typeof PersonalizedFigurinesRoute
   CategorySlugRoute: typeof CategorySlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
@@ -100,6 +161,34 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business-gifts': {
+      id: '/business-gifts'
+      path: '/business-gifts'
+      fullPath: '/business-gifts'
+      preLoaderRoute: typeof BusinessGiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personalized-figurines': {
+      id: '/personalized-figurines'
+      path: '/personalized-figurines'
+      fullPath: '/personalized-figurines'
+      preLoaderRoute: typeof PersonalizedFigurinesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/category/$slug': {
@@ -129,6 +218,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BusinessGiftsRoute: BusinessGiftsRoute,
+  GalleryRoute: GalleryRoute,
+  OurStoryRoute: OurStoryRoute,
+  PersonalizedFigurinesRoute: PersonalizedFigurinesRoute,
   CategorySlugRoute: CategorySlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   ProductsIndexRoute: ProductsIndexRoute,
