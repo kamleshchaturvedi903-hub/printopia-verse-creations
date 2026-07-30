@@ -20,6 +20,10 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as PersonalizedFigurinesRouteImport } from './routes/personalized-figurines'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
+import { Route as ShippingReturnsRouteImport } from './routes/shipping-returns'
+import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -82,6 +86,26 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-policy',
+  path: '/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingReturnsRoute = ShippingReturnsRouteImport.update({
+  id: '/shipping-returns',
+  path: '/shipping-returns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -125,6 +149,10 @@ export interface FileRoutesByFullPath {
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -144,6 +172,10 @@ export interface FileRoutesByTo {
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -164,6 +196,10 @@ export interface FileRoutesById {
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -185,6 +221,10 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/personalized-figurines'
     | '/pricing'
+    | '/privacy-policy'
+    | '/refund-policy'
+    | '/shipping-returns'
+    | '/terms-conditions'
     | '/testimonials'
     | '/blog/$slug'
     | '/category/$slug'
@@ -204,6 +244,10 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/personalized-figurines'
     | '/pricing'
+    | '/privacy-policy'
+    | '/refund-policy'
+    | '/shipping-returns'
+    | '/terms-conditions'
     | '/testimonials'
     | '/blog/$slug'
     | '/category/$slug'
@@ -223,6 +267,10 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/personalized-figurines'
     | '/pricing'
+    | '/privacy-policy'
+    | '/refund-policy'
+    | '/shipping-returns'
+    | '/terms-conditions'
     | '/testimonials'
     | '/blog/$slug'
     | '/category/$slug'
@@ -243,6 +291,10 @@ export interface RootRouteChildren {
   OurStoryRoute: typeof OurStoryRoute
   PersonalizedFigurinesRoute: typeof PersonalizedFigurinesRoute
   PricingRoute: typeof PricingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
+  ShippingReturnsRoute: typeof ShippingReturnsRoute
+  TermsConditionsRoute: typeof TermsConditionsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CategorySlugRoute: typeof CategorySlugRoute
@@ -330,6 +382,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund-policy': {
+      id: '/refund-policy'
+      path: '/refund-policy'
+      fullPath: '/refund-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-returns': {
+      id: '/shipping-returns'
+      path: '/shipping-returns'
+      fullPath: '/shipping-returns'
+      preLoaderRoute: typeof ShippingReturnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -387,6 +467,10 @@ const rootRouteChildren: RootRouteChildren = {
   OurStoryRoute: OurStoryRoute,
   PersonalizedFigurinesRoute: PersonalizedFigurinesRoute,
   PricingRoute: PricingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
+  ShippingReturnsRoute: ShippingReturnsRoute,
+  TermsConditionsRoute: TermsConditionsRoute,
   TestimonialsRoute: TestimonialsRoute,
   BlogSlugRoute: BlogSlugRoute,
   CategorySlugRoute: CategorySlugRoute,
