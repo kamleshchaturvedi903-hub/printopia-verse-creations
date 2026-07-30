@@ -7,7 +7,7 @@ import { PageHero, ProductCard } from "@/components/site/ui";
 import { CtaBand } from "@/components/site/ui";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/products")({
+export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: seo({
       title: "Custom 3D Printed Products & Figurines Online | 3D Printopia Verse",
