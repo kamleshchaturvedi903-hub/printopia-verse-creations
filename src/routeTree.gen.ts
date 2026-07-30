@@ -10,33 +10,297 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BusinessGiftsRouteImport } from './routes/business-gifts'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CustomOrdersRouteImport } from './routes/custom-orders'
+import { Route as FaqsRouteImport } from './routes/faqs'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as PersonalizedFigurinesRouteImport } from './routes/personalized-figurines'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
+import { Route as ShippingReturnsRouteImport } from './routes/shipping-returns'
+import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as CategorySlugRouteImport } from './routes/category.$slug'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessGiftsRoute = BusinessGiftsRouteImport.update({
+  id: '/business-gifts',
+  path: '/business-gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomOrdersRoute = CustomOrdersRouteImport.update({
+  id: '/custom-orders',
+  path: '/custom-orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PersonalizedFigurinesRoute = PersonalizedFigurinesRouteImport.update({
+  id: '/personalized-figurines',
+  path: '/personalized-figurines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-policy',
+  path: '/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingReturnsRoute = ShippingReturnsRouteImport.update({
+  id: '/shipping-returns',
+  path: '/shipping-returns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategorySlugRoute = CategorySlugRouteImport.update({
+  id: '/category/$slug',
+  path: '/category/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/business-gifts': typeof BusinessGiftsRoute
+  '/contact': typeof ContactRoute
+  '/custom-orders': typeof CustomOrdersRoute
+  '/faqs': typeof FaqsRoute
+  '/gallery': typeof GalleryRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/our-story': typeof OurStoryRoute
+  '/personalized-figurines': typeof PersonalizedFigurinesRoute
+  '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/category/$slug': typeof CategorySlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/business-gifts': typeof BusinessGiftsRoute
+  '/contact': typeof ContactRoute
+  '/custom-orders': typeof CustomOrdersRoute
+  '/faqs': typeof FaqsRoute
+  '/gallery': typeof GalleryRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/our-story': typeof OurStoryRoute
+  '/personalized-figurines': typeof PersonalizedFigurinesRoute
+  '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/category/$slug': typeof CategorySlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/business-gifts': typeof BusinessGiftsRoute
+  '/contact': typeof ContactRoute
+  '/custom-orders': typeof CustomOrdersRoute
+  '/faqs': typeof FaqsRoute
+  '/gallery': typeof GalleryRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/our-story': typeof OurStoryRoute
+  '/personalized-figurines': typeof PersonalizedFigurinesRoute
+  '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-returns': typeof ShippingReturnsRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/category/$slug': typeof CategorySlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/business-gifts'
+    | '/contact'
+    | '/custom-orders'
+    | '/faqs'
+    | '/gallery'
+    | '/how-it-works'
+    | '/our-story'
+    | '/personalized-figurines'
+    | '/pricing'
+    | '/privacy-policy'
+    | '/refund-policy'
+    | '/shipping-returns'
+    | '/terms-conditions'
+    | '/testimonials'
+    | '/blog/$slug'
+    | '/category/$slug'
+    | '/products/$slug'
+    | '/blog/'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/business-gifts'
+    | '/contact'
+    | '/custom-orders'
+    | '/faqs'
+    | '/gallery'
+    | '/how-it-works'
+    | '/our-story'
+    | '/personalized-figurines'
+    | '/pricing'
+    | '/privacy-policy'
+    | '/refund-policy'
+    | '/shipping-returns'
+    | '/terms-conditions'
+    | '/testimonials'
+    | '/blog/$slug'
+    | '/category/$slug'
+    | '/products/$slug'
+    | '/blog'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/business-gifts'
+    | '/contact'
+    | '/custom-orders'
+    | '/faqs'
+    | '/gallery'
+    | '/how-it-works'
+    | '/our-story'
+    | '/personalized-figurines'
+    | '/pricing'
+    | '/privacy-policy'
+    | '/refund-policy'
+    | '/shipping-returns'
+    | '/terms-conditions'
+    | '/testimonials'
+    | '/blog/$slug'
+    | '/category/$slug'
+    | '/products/$slug'
+    | '/blog/'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BusinessGiftsRoute: typeof BusinessGiftsRoute
+  ContactRoute: typeof ContactRoute
+  CustomOrdersRoute: typeof CustomOrdersRoute
+  FaqsRoute: typeof FaqsRoute
+  GalleryRoute: typeof GalleryRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  OurStoryRoute: typeof OurStoryRoute
+  PersonalizedFigurinesRoute: typeof PersonalizedFigurinesRoute
+  PricingRoute: typeof PricingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
+  ShippingReturnsRoute: typeof ShippingReturnsRoute
+  TermsConditionsRoute: typeof TermsConditionsRoute
+  TestimonialsRoute: typeof TestimonialsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  CategorySlugRoute: typeof CategorySlugRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +312,172 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business-gifts': {
+      id: '/business-gifts'
+      path: '/business-gifts'
+      fullPath: '/business-gifts'
+      preLoaderRoute: typeof BusinessGiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-orders': {
+      id: '/custom-orders'
+      path: '/custom-orders'
+      fullPath: '/custom-orders'
+      preLoaderRoute: typeof CustomOrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personalized-figurines': {
+      id: '/personalized-figurines'
+      path: '/personalized-figurines'
+      fullPath: '/personalized-figurines'
+      preLoaderRoute: typeof PersonalizedFigurinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund-policy': {
+      id: '/refund-policy'
+      path: '/refund-policy'
+      fullPath: '/refund-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-returns': {
+      id: '/shipping-returns'
+      path: '/shipping-returns'
+      fullPath: '/shipping-returns'
+      preLoaderRoute: typeof ShippingReturnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/category/$slug': {
+      id: '/category/$slug'
+      path: '/category/$slug'
+      fullPath: '/category/$slug'
+      preLoaderRoute: typeof CategorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$slug': {
+      id: '/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BusinessGiftsRoute: BusinessGiftsRoute,
+  ContactRoute: ContactRoute,
+  CustomOrdersRoute: CustomOrdersRoute,
+  FaqsRoute: FaqsRoute,
+  GalleryRoute: GalleryRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  OurStoryRoute: OurStoryRoute,
+  PersonalizedFigurinesRoute: PersonalizedFigurinesRoute,
+  PricingRoute: PricingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
+  ShippingReturnsRoute: ShippingReturnsRoute,
+  TermsConditionsRoute: TermsConditionsRoute,
+  TestimonialsRoute: TestimonialsRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  CategorySlugRoute: CategorySlugRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
