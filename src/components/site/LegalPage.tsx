@@ -1,5 +1,4 @@
-import { PageHero } from "./ui";
-import { CtaBand } from "./ui";
+import { CtaBand, PageHero } from "./ui";
 
 export function LegalPage({
   title,
