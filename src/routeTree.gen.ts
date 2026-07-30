@@ -12,9 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BusinessGiftsRouteImport } from './routes/business-gifts'
+import { Route as CustomOrdersRouteImport } from './routes/custom-orders'
+import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as PersonalizedFigurinesRouteImport } from './routes/personalized-figurines'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as CategorySlugRouteImport } from './routes/category.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
@@ -34,9 +38,24 @@ const BusinessGiftsRoute = BusinessGiftsRouteImport.update({
   path: '/business-gifts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomOrdersRoute = CustomOrdersRouteImport.update({
+  id: '/custom-orders',
+  path: '/custom-orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OurStoryRoute = OurStoryRouteImport.update({
@@ -47,6 +66,11 @@ const OurStoryRoute = OurStoryRouteImport.update({
 const PersonalizedFigurinesRoute = PersonalizedFigurinesRouteImport.update({
   id: '/personalized-figurines',
   path: '/personalized-figurines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CategorySlugRoute = CategorySlugRouteImport.update({
@@ -69,9 +93,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business-gifts': typeof BusinessGiftsRoute
+  '/custom-orders': typeof CustomOrdersRoute
+  '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
+  '/pricing': typeof PricingRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -80,9 +108,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business-gifts': typeof BusinessGiftsRoute
+  '/custom-orders': typeof CustomOrdersRoute
+  '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
+  '/pricing': typeof PricingRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products': typeof ProductsIndexRoute
@@ -92,9 +124,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business-gifts': typeof BusinessGiftsRoute
+  '/custom-orders': typeof CustomOrdersRoute
+  '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
+  '/pricing': typeof PricingRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -105,9 +141,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/business-gifts'
+    | '/custom-orders'
+    | '/faqs'
     | '/gallery'
+    | '/how-it-works'
     | '/our-story'
     | '/personalized-figurines'
+    | '/pricing'
     | '/category/$slug'
     | '/products/$slug'
     | '/products/'
@@ -116,9 +156,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/business-gifts'
+    | '/custom-orders'
+    | '/faqs'
     | '/gallery'
+    | '/how-it-works'
     | '/our-story'
     | '/personalized-figurines'
+    | '/pricing'
     | '/category/$slug'
     | '/products/$slug'
     | '/products'
@@ -127,9 +171,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/business-gifts'
+    | '/custom-orders'
+    | '/faqs'
     | '/gallery'
+    | '/how-it-works'
     | '/our-story'
     | '/personalized-figurines'
+    | '/pricing'
     | '/category/$slug'
     | '/products/$slug'
     | '/products/'
@@ -139,9 +187,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BusinessGiftsRoute: typeof BusinessGiftsRoute
+  CustomOrdersRoute: typeof CustomOrdersRoute
+  FaqsRoute: typeof FaqsRoute
   GalleryRoute: typeof GalleryRoute
+  HowItWorksRoute: typeof HowItWorksRoute
   OurStoryRoute: typeof OurStoryRoute
   PersonalizedFigurinesRoute: typeof PersonalizedFigurinesRoute
+  PricingRoute: typeof PricingRoute
   CategorySlugRoute: typeof CategorySlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
@@ -170,11 +222,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessGiftsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/custom-orders': {
+      id: '/custom-orders'
+      path: '/custom-orders'
+      fullPath: '/custom-orders'
+      preLoaderRoute: typeof CustomOrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/our-story': {
@@ -189,6 +262,13 @@ declare module '@tanstack/react-router' {
       path: '/personalized-figurines'
       fullPath: '/personalized-figurines'
       preLoaderRoute: typeof PersonalizedFigurinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/category/$slug': {
@@ -219,9 +299,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BusinessGiftsRoute: BusinessGiftsRoute,
+  CustomOrdersRoute: CustomOrdersRoute,
+  FaqsRoute: FaqsRoute,
   GalleryRoute: GalleryRoute,
+  HowItWorksRoute: HowItWorksRoute,
   OurStoryRoute: OurStoryRoute,
   PersonalizedFigurinesRoute: PersonalizedFigurinesRoute,
+  PricingRoute: PricingRoute,
   CategorySlugRoute: CategorySlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   ProductsIndexRoute: ProductsIndexRoute,
