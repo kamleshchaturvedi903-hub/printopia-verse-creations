@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BusinessGiftsRouteImport } from './routes/business-gifts'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomOrdersRouteImport } from './routes/custom-orders'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -19,6 +20,9 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as PersonalizedFigurinesRouteImport } from './routes/personalized-figurines'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CategorySlugRouteImport } from './routes/category.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
@@ -36,6 +40,11 @@ const AboutRoute = AboutRouteImport.update({
 const BusinessGiftsRoute = BusinessGiftsRouteImport.update({
   id: '/business-gifts',
   path: '/business-gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CustomOrdersRoute = CustomOrdersRouteImport.update({
@@ -73,6 +82,21 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CategorySlugRoute = CategorySlugRouteImport.update({
   id: '/category/$slug',
   path: '/category/$slug',
@@ -93,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business-gifts': typeof BusinessGiftsRoute
+  '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
@@ -100,14 +125,18 @@ export interface FileRoutesByFullPath {
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/pricing': typeof PricingRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business-gifts': typeof BusinessGiftsRoute
+  '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
@@ -115,8 +144,11 @@ export interface FileRoutesByTo {
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/pricing': typeof PricingRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
@@ -124,6 +156,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business-gifts': typeof BusinessGiftsRoute
+  '/contact': typeof ContactRoute
   '/custom-orders': typeof CustomOrdersRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
@@ -131,8 +164,11 @@ export interface FileRoutesById {
   '/our-story': typeof OurStoryRoute
   '/personalized-figurines': typeof PersonalizedFigurinesRoute
   '/pricing': typeof PricingRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -141,6 +177,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/business-gifts'
+    | '/contact'
     | '/custom-orders'
     | '/faqs'
     | '/gallery'
@@ -148,14 +185,18 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/personalized-figurines'
     | '/pricing'
+    | '/testimonials'
+    | '/blog/$slug'
     | '/category/$slug'
     | '/products/$slug'
+    | '/blog/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/business-gifts'
+    | '/contact'
     | '/custom-orders'
     | '/faqs'
     | '/gallery'
@@ -163,14 +204,18 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/personalized-figurines'
     | '/pricing'
+    | '/testimonials'
+    | '/blog/$slug'
     | '/category/$slug'
     | '/products/$slug'
+    | '/blog'
     | '/products'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/business-gifts'
+    | '/contact'
     | '/custom-orders'
     | '/faqs'
     | '/gallery'
@@ -178,8 +223,11 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/personalized-figurines'
     | '/pricing'
+    | '/testimonials'
+    | '/blog/$slug'
     | '/category/$slug'
     | '/products/$slug'
+    | '/blog/'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
@@ -187,6 +235,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BusinessGiftsRoute: typeof BusinessGiftsRoute
+  ContactRoute: typeof ContactRoute
   CustomOrdersRoute: typeof CustomOrdersRoute
   FaqsRoute: typeof FaqsRoute
   GalleryRoute: typeof GalleryRoute
@@ -194,8 +243,11 @@ export interface RootRouteChildren {
   OurStoryRoute: typeof OurStoryRoute
   PersonalizedFigurinesRoute: typeof PersonalizedFigurinesRoute
   PricingRoute: typeof PricingRoute
+  TestimonialsRoute: typeof TestimonialsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   CategorySlugRoute: typeof CategorySlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -220,6 +272,13 @@ declare module '@tanstack/react-router' {
       path: '/business-gifts'
       fullPath: '/business-gifts'
       preLoaderRoute: typeof BusinessGiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/custom-orders': {
@@ -271,6 +330,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/category/$slug': {
       id: '/category/$slug'
       path: '/category/$slug'
@@ -299,6 +379,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BusinessGiftsRoute: BusinessGiftsRoute,
+  ContactRoute: ContactRoute,
   CustomOrdersRoute: CustomOrdersRoute,
   FaqsRoute: FaqsRoute,
   GalleryRoute: GalleryRoute,
@@ -306,8 +387,11 @@ const rootRouteChildren: RootRouteChildren = {
   OurStoryRoute: OurStoryRoute,
   PersonalizedFigurinesRoute: PersonalizedFigurinesRoute,
   PricingRoute: PricingRoute,
+  TestimonialsRoute: TestimonialsRoute,
+  BlogSlugRoute: BlogSlugRoute,
   CategorySlugRoute: CategorySlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
