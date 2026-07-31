@@ -5,6 +5,19 @@ import catPets from "@/assets/cat-pets.jpg";
 import catCouple from "@/assets/cat-couple.jpg";
 import catVehicles from "@/assets/cat-vehicles.jpg";
 import catCorporate from "@/assets/cat-corporate.jpg";
+import toyDinosaur from "@/assets/toy-dinosaur.jpg";
+import toyRobot from "@/assets/toy-robot.jpg";
+import toyPanda from "@/assets/toy-panda.jpg";
+import toyDragon from "@/assets/toy-dragon.jpg";
+import toyAstronaut from "@/assets/toy-astronaut.jpg";
+import toyElephant from "@/assets/toy-elephant.jpg";
+import toyUnicorn from "@/assets/toy-unicorn.jpg";
+import toyTeddy from "@/assets/toy-teddy.jpg";
+import toyCat from "@/assets/toy-cat.jpg";
+import toyGiftbox from "@/assets/toy-giftbox.jpg";
+import studioProcess from "@/assets/studio-process.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 export const images = {
   hero,
@@ -14,7 +27,45 @@ export const images = {
   couple: catCouple,
   vehicles: catVehicles,
   corporate: catCorporate,
+  dinosaur: toyDinosaur,
+  robot: toyRobot,
+  panda: toyPanda,
+  dragon: toyDragon,
+  astronaut: toyAstronaut,
+  elephant: toyElephant,
+  unicorn: toyUnicorn,
+  teddy: toyTeddy,
+  cat: toyCat,
+  giftbox: toyGiftbox,
+  studio: studioProcess,
+  heroSlide2,
+  heroSlide3,
 };
+
+/** Hero banner auto-slider — 3 premium visuals, no layout shift. */
+export const heroSlides = [
+  {
+    image: hero,
+    alt: "Hand-painted 3D printed miniature family figurines on a lit display base",
+    title: "Mini-Me Family Portrait",
+    note: "Resin · Hand-painted · 15 cm",
+    slug: "mini-me-family-portrait",
+  },
+  {
+    image: heroSlide2,
+    alt: "Collection of hand-painted 3D printed hero figurines on a lit display shelf",
+    title: "Collector Display Series",
+    note: "Resin · Studio finish · 20 cm",
+    slug: "anime-hero-collectible",
+  },
+  {
+    image: heroSlide3,
+    alt: "Resin 3D printer producing a detailed toy figurine inside a modern studio",
+    title: "Printed In Our Studio",
+    note: "25-micron detail · Ahmedabad",
+    slug: "articulated-robot-buddy",
+  },
+];
 
 export const company = {
   name: "3D Printopia Verse",
@@ -29,7 +80,7 @@ export const company = {
   address: "A13, Chandrapuri Apartment, Vastrapur, Ahmedabad – 380015, Gujarat, India",
   mapQuery: "Chandrapuri+Apartment+Vastrapur+Ahmedabad+380015",
   hours: "Mon – Sat · 10:00 AM – 8:00 PM IST",
-  countries: ["India", "USA", "Canada", "UK", "Australia", "UAE"],
+  countries: ["India"],
   social: [
     { label: "Instagram", href: "https://instagram.com" },
     { label: "Facebook", href: "https://facebook.com" },
@@ -60,7 +111,7 @@ export const categories: Category[] = [
     name: "Robot Toys",
     blurb:
       "Articulated print-in-place robots and mech models with movable joints — no glue, no assembly, endless play.",
-    image: catKids,
+    image: toyRobot,
     from: 1299,
   },
   {
@@ -108,7 +159,7 @@ export const categories: Category[] = [
     name: "Home Decor & Keychains",
     blurb:
       "Lithophane lamps, wall art, planters, nameplates and personalised keychains for gifting at any scale.",
-    image: catCorporate,
+    image: toyElephant,
     from: 399,
   },
 ];
@@ -185,7 +236,7 @@ export const products: Product[] = [
     name: "Articulated Robot Buddy",
     category: "robot-toys",
     price: 1799,
-    image: catKids,
+    image: toyRobot,
     short: "Print-in-place robot with 14 movable joints. Zero assembly.",
     description:
       "A tough PLA+ robot that arrives fully articulated straight from the printer. Fourteen joints, swappable heads and a name plate on the chest. Drop-tested and finished with child-safe, non-toxic coatings.",
@@ -235,7 +286,7 @@ export const products: Product[] = [
     image: catCorporate,
     short: "Custom-sculpted award in your brand colours and logo.",
     description:
-      "Designed around your brand identity — logo geometry, Pantone-matched paint and laser-etched recipient plates. Volume pricing from 25 units, delivered pan-India and worldwide.",
+      "Designed around your brand identity — logo geometry, Pantone-matched paint and laser-etched recipient plates. Volume pricing from 25 units, delivered pan-India.",
     height: "18 cm – 26 cm",
     turnaround: "7–12 days (bulk)",
     tags: ["Corporate", "Bulk", "Branded"],
@@ -263,7 +314,7 @@ export const products: Product[] = [
     name: "Baby Memory Figurine",
     category: "kids-collection",
     price: 4599,
-    image: hero,
+    image: toyTeddy,
     short: "First smile, first steps — frozen in a keepsake sculpture.",
     description:
       "A gentle, softly sculpted miniature from your favourite newborn photograph, paired with an engraved plaque carrying name, date and birth weight.",
@@ -279,7 +330,7 @@ export const products: Product[] = [
     name: "Gaming Character Statue",
     category: "anime-collection",
     price: 5999,
-    image: catAnime,
+    image: toyDragon,
     short: "Your in-game avatar, brought into the real world.",
     description:
       "Send a screenshot or model export of your favourite character or your own avatar. We optimise, sculpt supports, print and finish it as a display-grade statue.",
@@ -294,7 +345,7 @@ export const products: Product[] = [
     name: "Personalised LED Nameplate",
     category: "home-decor",
     price: 1499,
-    image: catCorporate,
+    image: toyGiftbox,
     short: "Backlit home or office nameplate in any font and finish.",
     description:
       "Weather-resistant ASA print with warm LED backlighting, wall or door mount, and a choice of matte, wood-fill or metallic finishes.",
@@ -309,7 +360,7 @@ export const products: Product[] = [
     name: "Custom Keychain Pack (10)",
     category: "home-decor",
     price: 899,
-    image: catCorporate,
+    image: toyPanda,
     short: "Ten personalised keychains — names, logos or tiny faces.",
     description:
       "The easiest way to gift at scale. Perfect for return gifts, event giveaways and small-batch merchandise. Multi-colour printing included.",
@@ -324,7 +375,7 @@ export const products: Product[] = [
 export const stats = [
   { value: 18500, suffix: "+", label: "Figurines delivered" },
   { value: 240, suffix: "+", label: "Corporate clients" },
-  { value: 6, suffix: "", label: "Countries shipped" },
+  { value: 25, suffix: "+", label: "Indian cities served" },
   { value: 98, suffix: "%", label: "5-star satisfaction" },
 ];
 
@@ -357,8 +408,8 @@ export const testimonials = [
     rating: 5,
   },
   {
-    name: "Sarah Whitfield",
-    role: "Customer · London, UK",
+    name: "Meera Iyer",
+    role: "Customer · Bengaluru",
     text: "Ordered a miniature of our late labrador. It arrived in nine days, perfectly packed. Our whole family was in tears — the good kind.",
     rating: 5,
   },
@@ -370,13 +421,13 @@ export const testimonials = [
   },
   {
     name: "Priya Nair",
-    role: "Mother of two · Dubai, UAE",
+    role: "Mother of two · Pune",
     text: "My son opened his superhero figure and went completely silent. Then he hugged it. That reaction is why I will order every year.",
     rating: 5,
   },
   {
-    name: "Daniel Cruz",
-    role: "Anime fan · Toronto, Canada",
+    name: "Aditya Rao",
+    role: "Anime fan · Hyderabad",
     text: "The turntable preview before printing sold me. I asked for three changes, no complaints, no extra charges. Brilliant service.",
     rating: 5,
   },
@@ -396,8 +447,8 @@ export const faqs = [
     a: "Single-person figurines start at ₹3,499, couples from ₹4,999, and pet miniatures from ₹2,499. Final pricing depends on height, detail, number of figures and finish. You get a firm quote before any work begins.",
   },
   {
-    q: "Do you ship internationally?",
-    a: "Yes. We ship to India, the USA, Canada, the UK, Australia and the UAE with insured, fully tracked courier partners. International delivery typically adds 5–8 days.",
+    q: "Where do you deliver?",
+    a: "We deliver across India with insured, fully tracked courier partners. Metro cities typically receive orders in 2–3 days after dispatch, and other locations in 3–6 days.",
   },
   {
     q: "What material do you print in?",
@@ -444,7 +495,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-07-12",
     readTime: "6 min read",
     category: "3D Printing",
-    image: hero,
+    image: studioProcess,
   },
   {
     slug: "best-personalised-gifts-2026",
@@ -461,7 +512,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-06-28",
     readTime: "5 min read",
     category: "Custom Gifts",
-    image: catCouple,
+    image: toyUnicorn,
   },
   {
     slug: "anime-collectibles-buying-guide",
@@ -478,7 +529,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-06-09",
     readTime: "7 min read",
     category: "Anime Collectibles",
-    image: catAnime,
+    image: toyAstronaut,
   },
   {
     slug: "corporate-gifting-with-3d-printing",
@@ -490,12 +541,12 @@ export const blogPosts: BlogPost[] = [
       "Additive manufacturing removes the tooling cost entirely. Twenty-five units cost proportionally the same as five hundred, which means you can gift precisely and iterate designs annually.",
       "It also unlocks geometry that moulding cannot produce — interlocking logo forms, lattice structures, individually named pieces within a single batch.",
       "For employee recognition programmes, individual name engraving at no extra cost changes the perceived value of the award completely.",
-      "We handle design, brand-colour matching, gift boxing and multi-address dispatch across India and internationally, with dedicated account management for orders above 100 units.",
+      "We handle design, brand-colour matching, gift boxing and multi-address dispatch across India, with dedicated account management for orders above 100 units.",
     ],
     date: "2026-05-22",
     readTime: "5 min read",
     category: "Corporate Gifts",
-    image: catCorporate,
+    image: toyDinosaur,
   },
   {
     slug: "resin-vs-filament-printing",
@@ -535,7 +586,7 @@ export const blogPosts: BlogPost[] = [
 
 export const trustBadges = [
   "Free 360° preview before printing",
-  "Insured worldwide shipping",
+  "Insured pan-India shipping",
   "Damage-free delivery guarantee",
   "Hand-painted by studio artists",
 ];

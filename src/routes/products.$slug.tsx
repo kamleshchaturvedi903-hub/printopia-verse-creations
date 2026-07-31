@@ -24,7 +24,7 @@ export const Route = createFileRoute("/products/$slug")({
     return {
       meta: seo({
         title: `${p.name} — Custom 3D Printed | 3D Printopia Verse`,
-        description: `${p.short} From ₹${p.price.toLocaleString("en-IN")}. Hand-painted, ${p.turnaround} delivery, worldwide shipping.`,
+        description: `${p.short} From ₹${p.price.toLocaleString("en-IN")}. Hand-painted, ${p.turnaround} delivery, shipped across India.`,
         type: "product",
       }),
       scripts: [
@@ -136,7 +136,7 @@ function ProductDetail() {
                 "Free 360° digital preview before printing",
                 "Unlimited revisions at the preview stage",
                 "Hand-painted finish with protective varnish",
-                "Insured, tracked shipping to 6 countries",
+                "Insured, tracked shipping across India",
               ].map((f) => (
                 <li key={f} className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-success" /> {f}

@@ -6,9 +6,9 @@ import { CtaBand, PageHero, Reveal } from "@/components/site/ui";
 export const Route = createFileRoute("/our-story")({
   head: () => ({
     meta: seo({
-      title: "Our Story — From One Printer to Six Countries | 3D Printopia Verse",
+      title: "Our Story — From One Printer to a Pan-India Studio | 3D Printopia Verse",
       description:
-        "The story of 3D Printopia Verse: how a hobby printer in a Vastrapur apartment grew into a premium custom 3D printing studio shipping personalised figurines worldwide.",
+        "The story of 3D Printopia Verse: how a hobby printer in a Vastrapur apartment grew into a premium custom 3D printing studio delivering personalised figurines across India.",
       type: "article",
     }),
   }),
@@ -39,7 +39,7 @@ const timeline = [
   {
     year: "2024",
     title: "Going global",
-    text: "Insured international courier partnerships opened up the USA, UK, Canada, Australia and the UAE. Diaspora families started sending us photos from three continents.",
+    text: "Insured courier partnerships opened up every serviceable pin code in India. Families from Kochi to Guwahati started sending us photos.",
   },
   {
     year: "2026",

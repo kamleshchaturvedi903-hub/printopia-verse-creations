@@ -10,7 +10,7 @@ export const Route = createFileRoute("/about")({
     meta: seo({
       title: "About Our 3D Printing Studio in Ahmedabad | 3D Printopia Verse",
       description:
-        "Meet the sculptors, painters and engineers behind 3D Printopia Verse — a premium custom 3D printing studio in Vastrapur, Ahmedabad serving customers in six countries.",
+        "Meet the sculptors, painters and engineers behind 3D Printopia Verse — a premium custom 3D printing studio in Vastrapur, Ahmedabad serving customers across India.",
     }),
   }),
   component: About,
@@ -75,7 +75,7 @@ function About() {
             to a third-party workshop.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Today we ship to {company.countries.join(", ")} — but the studio is still in
+            Today we deliver across {company.countries.join(", ")} — but the studio is still in
             Ahmedabad, and you can still walk in and watch a print run.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

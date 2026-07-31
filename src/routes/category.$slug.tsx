@@ -23,7 +23,7 @@ export const Route = createFileRoute("/category/$slug")({
     return {
       meta: seo({
         title: `${c.name} — Custom 3D Printed | 3D Printopia Verse`,
-        description: `${c.blurb} Prices from ₹${c.from}. Hand-painted in Ahmedabad, shipped across India, USA, UK, UAE, Canada and Australia.`,
+        description: `${c.blurb} Prices from ₹${c.from}. Hand-painted in Ahmedabad, delivered across India.`,
       }),
     };
   },

@@ -45,7 +45,7 @@ export function Footer() {
           </div>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
             A premium custom 3D printing studio in Ahmedabad, crafting personalised
-            figurines, collectibles and corporate gifts for customers across six countries.
+            figurines, collectibles and corporate gifts for customers across India.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {company.social.map((s) => (

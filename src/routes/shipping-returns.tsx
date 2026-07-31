@@ -8,7 +8,7 @@ export const Route = createFileRoute("/shipping-returns")({
     meta: seo({
       title: "Shipping & Returns Policy | 3D Printopia Verse",
       description:
-        "Delivery timelines and costs for India, USA, UK, Canada, Australia and the UAE, plus how returns and damage replacements work for custom 3D printed products.",
+        "Delivery timelines and costs across India, plus how returns and damage replacements work for custom 3D printed products.",
     }),
   }),
   component: () => (
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/shipping-returns")({
         {
           heading: "3. International shipping",
           body: [
-            "We ship to the USA, UK, Canada, Australia and the UAE from ₹1,800 depending on weight, destination and insured value. Transit is typically 5–8 working days after dispatch.",
+            "We deliver to every serviceable pin code in India. Standard delivery is free above ₹2,499; below that it is ₹149. Transit is typically 2–3 working days to metro cities and 3–6 working days elsewhere after dispatch.",
             "Import duties and local taxes, where applicable, are payable by the recipient.",
           ],
         },

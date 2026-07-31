@@ -16,6 +16,7 @@ import {
   categories,
   company,
   faqs,
+  heroSlides,
   images,
   products,
   stats,
@@ -32,7 +33,6 @@ import {
   Reveal,
   SectionHeading,
 } from "@/components/site/ui";
-import { PortfolioSlider } from "@/components/site/PortfolioSlider";
 import { Product360Viewer } from "@/components/site/Product360";
 import {
   Accordion,
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
     meta: seo({
       title: "Custom 3D Printed Figurines & Personalised Gifts | 3D Printopia Verse",
       description:
-        "Turn photos into hand-painted 3D printed figurines. Personalised human figures, anime collectibles, pet miniatures, wedding toppers & corporate gifts. Ahmedabad studio, worldwide shipping.",
+        "Turn photos into hand-painted 3D printed figurines. Personalised human figures, anime collectibles, pet miniatures, wedding toppers & corporate gifts. Ahmedabad studio, delivered across India.",
     }),
     scripts: [
       {
@@ -66,7 +66,7 @@ function Home() {
       <Categories />
       <BestSellers />
       <HowItWorks />
-      <PrintingPortfolio />
+      <ToyCategories />
       <Explore360 />
       <Showcase />
       <Stats />
@@ -83,8 +83,13 @@ function Home() {
 function Hero() {
   const words = ["Figurines", "Collectibles", "Memories", "Gifts"];
   const [i, setI] = useState(0);
+  const [slide, setSlide] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setI((v) => (v + 1) % words.length), 2200);
+    return () => clearInterval(t);
+  }, []);
+  useEffect(() => {
+    const t = setInterval(() => setSlide((v) => (v + 1) % heroSlides.length), 3500);
     return () => clearInterval(t);
   }, []);
 
@@ -101,7 +106,7 @@ function Hero() {
       <div className="container-lux grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_1fr] lg:py-24">
         <div className="animate-rise">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
-            <Sparkles className="h-3.5 w-3.5" /> Ahmedabad · Shipping to 6 countries
+            <Sparkles className="h-3.5 w-3.5" /> Ahmedabad · Delivering across India
           </span>
 
           <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.03] text-ink sm:text-5xl lg:text-[4.1rem]">
@@ -147,33 +152,58 @@ function Hero() {
               <Clock className="h-4 w-4 text-primary" /> Delivery in 8–14 days
             </span>
             <span className="flex items-center gap-2">
-              <Globe2 className="h-4 w-4 text-primary" /> IN · US · UK · UAE · CA · AU
+              <Globe2 className="h-4 w-4 text-primary" /> Delivered across India
             </span>
           </div>
         </div>
 
         <div className="relative">
           <div className="lift relative overflow-hidden rounded-4xl border shadow-lift">
-            <img
-              src={images.hero}
-              alt="Hand-painted 3D printed miniature family figurines on a lit display base"
-              width={1600}
-              height={1000}
-              fetchPriority="high"
-              className="aspect-4/3 w-full object-cover"
-            />
-            <div className="glass absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl px-4 py-3">
-              <div>
-                <p className="font-display text-sm font-semibold text-ink">
-                  Mini-Me Family Portrait
+            <div className="relative aspect-4/3 w-full">
+              {heroSlides.map((s, idx) => (
+                <img
+                  key={s.slug}
+                  src={s.image}
+                  alt={s.alt}
+                  width={1600}
+                  height={1200}
+                  fetchPriority={idx === 0 ? "high" : "low"}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  aria-hidden={idx !== slide}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-out ${
+                    idx === slide ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
+            </div>
+            <div className="glass absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 rounded-2xl px-4 py-3">
+              <div className="min-w-0">
+                <p className="truncate font-display text-sm font-semibold text-ink">
+                  {heroSlides[slide].title}
                 </p>
-                <p className="text-xs text-muted-foreground">Resin · Hand-painted · 15 cm</p>
+                <p className="truncate text-xs text-muted-foreground">
+                  {heroSlides[slide].note}
+                </p>
               </div>
-              <Button asChild size="sm" variant="hero">
-                <Link to="/products/$slug" params={{ slug: "mini-me-family-portrait" }}>
+              <Button asChild size="sm" variant="hero" className="shrink-0">
+                <Link to="/products/$slug" params={{ slug: heroSlides[slide].slug }}>
                   View
                 </Link>
               </Button>
+            </div>
+            <div className="absolute right-4 top-4 flex gap-1.5">
+              {heroSlides.map((s, idx) => (
+                <button
+                  key={s.slug}
+                  onClick={() => setSlide(idx)}
+                  aria-label={`Show slide ${idx + 1}: ${s.title}`}
+                  aria-current={idx === slide}
+                  className={`h-1.5 rounded-full transition-all ${
+                    idx === slide ? "w-6 bg-primary" : "w-2.5 bg-primary/35 hover:bg-primary/60"
+                  }`}
+                />
+              ))}
             </div>
           </div>
 
@@ -330,8 +360,35 @@ function HowItWorks() {
   );
 }
 
-/* ----------------------- Printing portfolio ----------------------- */
-function PrintingPortfolio() {
+/* ------------------------- Toy categories ------------------------- */
+const toyCategories = [
+  {
+    slug: "kids-collection",
+    name: "Kids Collection",
+    text: "Child-safe articulated toys and hero figures printed in tough PLA+.",
+    image: images.kids,
+  },
+  {
+    slug: "anime-collection",
+    name: "Anime Toys",
+    text: "Collector-grade resin statues with effect parts and display bases.",
+    image: images.anime,
+  },
+  {
+    slug: "corporate-gifts",
+    name: "Corporate Gifts",
+    text: "Branded trophies, desk awards and bulk employee gifting.",
+    image: images.corporate,
+  },
+  {
+    slug: "vehicles",
+    name: "Vehicles Collection",
+    text: "Scale supercars, bikes and dream-garage replicas in show finishes.",
+    image: images.vehicles,
+  },
+];
+
+function ToyCategories() {
   return (
     <section className="relative overflow-hidden border-y bg-surface py-20 md:py-28">
       <div
@@ -344,17 +401,43 @@ function PrintingPortfolio() {
       />
       <div className="container-lux relative">
         <SectionHeading
-          eyebrow="Portfolio"
-          title="Our Printing Portfolio"
-          subtitle="Explore some of our finest printing work delivered with premium quality, vibrant colours and exceptional finishing."
+          eyebrow="Toy categories"
+          title="Premium 3D Printed Toy Collections"
+          subtitle="Ultra-detailed, hand-finished toys for every shelf — explore the collections our studio is best known for."
         />
-        <Reveal className="mt-14">
-          <PortfolioSlider />
-        </Reveal>
-        <div className="mt-10 text-center">
-          <Button asChild variant="hero" size="lg">
-            <Link to="/gallery">Browse the full portfolio</Link>
-          </Button>
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {toyCategories.map((c, i) => (
+            <Reveal key={c.slug} delay={i * 70}>
+              <article className="lift group flex h-full flex-col overflow-hidden rounded-3xl border bg-card">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={c.image}
+                    alt={`${c.name} — premium 3D printed toys`}
+                    loading="lazy"
+                    decoding="async"
+                    width={1200}
+                    height={900}
+                    className="aspect-4/3 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-linear-to-t from-ink/70 via-ink/10 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="font-display text-base font-semibold text-ink">{c.name}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {c.text}
+                  </p>
+                  <Button asChild variant="outline" size="sm" className="mt-5 w-full">
+                    <Link to="/category/$slug" params={{ slug: c.slug }}>
+                      View Collection <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
