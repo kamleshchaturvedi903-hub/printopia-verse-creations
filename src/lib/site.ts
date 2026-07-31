@@ -541,7 +541,7 @@ export const blogPosts: BlogPost[] = [
       "Additive manufacturing removes the tooling cost entirely. Twenty-five units cost proportionally the same as five hundred, which means you can gift precisely and iterate designs annually.",
       "It also unlocks geometry that moulding cannot produce — interlocking logo forms, lattice structures, individually named pieces within a single batch.",
       "For employee recognition programmes, individual name engraving at no extra cost changes the perceived value of the award completely.",
-      "We handle design, brand-colour matching, gift boxing and multi-address dispatch across India and internationally, with dedicated account management for orders above 100 units.",
+      "We handle design, brand-colour matching, gift boxing and multi-address dispatch across India, with dedicated account management for orders above 100 units.",
     ],
     date: "2026-05-22",
     readTime: "5 min read",
@@ -586,7 +586,7 @@ export const blogPosts: BlogPost[] = [
 
 export const trustBadges = [
   "Free 360° preview before printing",
-  "Insured worldwide shipping",
+  "Insured pan-India shipping",
   "Damage-free delivery guarantee",
   "Hand-painted by studio artists",
 ];
