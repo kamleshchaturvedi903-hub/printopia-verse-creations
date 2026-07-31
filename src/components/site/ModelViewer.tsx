@@ -1,0 +1,99 @@
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
+import { ClientOnly } from "@tanstack/react-router";
+import { Expand, Maximize2, RotateCcw } from "lucide-react";
+
+const ModelCanvas = lazy(() => import("@/components/site/ModelCanvas"));
+
+function Skeleton() {
+  return (
+    <div className="grid h-full w-full place-items-center">
+      <div className="h-24 w-24 animate-pulse rounded-full bg-primary/15 blur-xl" />
+    </div>
+  );
+}
+
+export function ModelViewer({
+  className = "",
+  controls = false,
+  autoRotateSpeed = 0.8,
+  label = "Interactive 3D preview of a premium 3D printed collectible",
+}: {
+  className?: string;
+  controls?: boolean;
+  autoRotateSpeed?: number;
+  label?: string;
+}) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const orbitRef = useRef<{ reset: () => void } | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const requestFullscreen = () => {
+    const el = wrapRef.current;
+    if (!el) return;
+    if (document.fullscreenElement) void document.exitFullscreen();
+    else void el.requestFullscreen?.();
+  };
+
+  return (
+    <div
+      ref={wrapRef}
+      role="img"
+      aria-label={label}
+      onDoubleClick={() => orbitRef.current?.reset()}
+      className={`relative touch-none select-none ${className}`}
+    >
+      <ClientOnly fallback={<Skeleton />}>
+        {visible ? (
+          <Suspense fallback={<Skeleton />}>
+            <ModelCanvas autoRotateSpeed={autoRotateSpeed} controlsRef={orbitRef} />
+          </Suspense>
+        ) : (
+          <Skeleton />
+        )}
+      </ClientOnly>
+
+      {controls && (
+        <div className="absolute bottom-3 right-3 flex gap-2">
+          <button
+            type="button"
+            onClick={() => orbitRef.current?.reset()}
+            aria-label="Reset camera view"
+            className="glass grid h-10 w-10 place-items-center rounded-full text-ink transition-transform hover:scale-105"
+          >
+            <RotateCcw className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={requestFullscreen}
+            aria-label="View model fullscreen"
+            className="glass grid h-10 w-10 place-items-center rounded-full text-ink transition-transform hover:scale-105"
+          >
+            <Maximize2 className="h-4 w-4" />
+          </button>
+        </div>
+      )}
+
+      {controls && (
+        <span className="glass pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold text-ink">
+          <Expand className="h-3.5 w-3.5 text-primary" /> Drag to rotate
+        </span>
+      )}
+    </div>
+  );
+}
