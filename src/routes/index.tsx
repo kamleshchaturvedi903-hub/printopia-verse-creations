@@ -20,7 +20,6 @@ import {
   categories,
   company,
   faqs,
-  heroSlides,
   images,
   products,
   stats,
