@@ -56,9 +56,9 @@ export function Header() {
       <div className="hidden bg-night text-xs text-primary-foreground md:block">
         <div className="container-lux flex h-9 items-center justify-between">
           <p className="opacity-90">
-            Free 360° design preview · Worldwide shipping to India, USA, UK, UAE, Canada &
-            Australia
+            Free 360° design preview · Insured, tracked delivery across India
           </p>
+
           <div className="flex items-center gap-4 opacity-90">
             <a className="hover:opacity-100" href={company.phoneHref}>
               {company.phone}
