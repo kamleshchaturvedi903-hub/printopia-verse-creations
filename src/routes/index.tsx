@@ -10,13 +10,16 @@ import {
   Quote,
   Sparkles,
   Star,
+  Wand2,
+  Leaf,
+  ShieldCheck,
+  PackageCheck,
 } from "lucide-react";
 import {
   blogPosts,
   categories,
   company,
   faqs,
-  heroSlides,
   images,
   products,
   stats,
@@ -33,7 +36,7 @@ import {
   Reveal,
   SectionHeading,
 } from "@/components/site/ui";
-import { Product360Viewer } from "@/components/site/Product360";
+import { ModelViewer } from "@/components/site/ModelViewer";
 import {
   Accordion,
   AccordionContent,
@@ -81,18 +84,6 @@ function Home() {
 
 /* ------------------------------- Hero ------------------------------- */
 function Hero() {
-  const words = ["Figurines", "Collectibles", "Memories", "Gifts"];
-  const [i, setI] = useState(0);
-  const [slide, setSlide] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % words.length), 2200);
-    return () => clearInterval(t);
-  }, []);
-  useEffect(() => {
-    const t = setInterval(() => setSlide((v) => (v + 1) % heroSlides.length), 3500);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <section className="relative overflow-hidden">
       <div
@@ -109,37 +100,24 @@ function Hero() {
             <Sparkles className="h-3.5 w-3.5" /> Ahmedabad · Delivering across India
           </span>
 
-          <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.03] text-ink sm:text-5xl lg:text-[4.1rem]">
-            Your world, printed in
-            <span className="relative ml-3 inline-block h-[1.15em] overflow-hidden align-bottom">
-              <span
-                className="block text-gradient transition-transform duration-700 ease-out"
-                style={{ transform: `translateY(-${i * 1.15}em)` }}
-              >
-                {words.map((w) => (
-                  <span key={w} className="block h-[1.15em]">
-                    {w}
-                  </span>
-                ))}
-              </span>
-            </span>
+          <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] text-ink sm:text-5xl lg:text-[4rem]">
+            Premium <span className="text-gradient">3D Printed</span> Collectibles
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            We sculpt and hand-paint high-detail 3D printed figurines from your photographs
-            — people, pets, heroes and brands. Free 360° preview before we print a single
-            layer.
+            Custom-made anime figures, action figures, gifts, miniatures, home décor and
+            personalized 3D creations — sculpted, printed and hand-finished in our studio.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
-              <Link to="/custom-orders">
-                Get your free quote <ArrowRight className="h-4 w-4" />
+              <Link to="/products">
+                Explore Collection <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link to="/gallery">
-                <Play className="h-4 w-4" /> See the studio
+              <Link to="/custom-orders">
+                <Play className="h-4 w-4" /> Get Custom Quote
               </Link>
             </Button>
           </div>
@@ -158,60 +136,19 @@ function Hero() {
         </div>
 
         <div className="relative">
-          <div className="lift relative overflow-hidden rounded-4xl border shadow-lift">
-            <div className="relative aspect-4/3 w-full">
-              {heroSlides.map((s, idx) => (
-                <img
-                  key={s.slug}
-                  src={s.image}
-                  alt={s.alt}
-                  width={1600}
-                  height={1200}
-                  fetchPriority={idx === 0 ? "high" : "low"}
-                  loading={idx === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                  aria-hidden={idx !== slide}
-                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-out ${
-                    idx === slide ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              ))}
-            </div>
-            <div className="glass absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 rounded-2xl px-4 py-3">
-              <div className="min-w-0">
-                <p className="truncate font-display text-sm font-semibold text-ink">
-                  {heroSlides[slide].title}
-                </p>
-                <p className="truncate text-xs text-muted-foreground">
-                  {heroSlides[slide].note}
-                </p>
-              </div>
-              <Button asChild size="sm" variant="hero" className="shrink-0">
-                <Link to="/products/$slug" params={{ slug: heroSlides[slide].slug }}>
-                  View
-                </Link>
-              </Button>
-            </div>
-            <div className="absolute right-4 top-4 flex gap-1.5">
-              {heroSlides.map((s, idx) => (
-                <button
-                  key={s.slug}
-                  onClick={() => setSlide(idx)}
-                  aria-label={`Show slide ${idx + 1}: ${s.title}`}
-                  aria-current={idx === slide}
-                  className={`h-1.5 rounded-full transition-all ${
-                    idx === slide ? "w-6 bg-primary" : "w-2.5 bg-primary/35 hover:bg-primary/60"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-8 rounded-full bg-primary/20 blur-3xl animate-glow"
+          />
+          <ModelViewer
+            className="relative h-[22rem] w-full sm:h-[26rem] lg:h-[34rem]"
+            autoRotateSpeed={0.7}
+          />
           <div className="glass absolute -left-3 top-8 hidden rounded-2xl px-4 py-3 shadow-lift animate-float sm:block">
-            <p className="text-xs font-semibold text-ink">Free 360° preview</p>
-            <p className="text-[11px] text-muted-foreground">before printing</p>
+            <p className="text-xs font-semibold text-ink">Drag to rotate</p>
+            <p className="text-[11px] text-muted-foreground">interactive 3D preview</p>
           </div>
-          <div className="glass absolute -right-2 bottom-24 hidden rounded-2xl px-4 py-3 shadow-lift animate-float sm:block">
+          <div className="glass absolute -right-2 bottom-10 hidden rounded-2xl px-4 py-3 shadow-lift animate-float sm:block">
             <p className="text-xs font-semibold text-ink">25-micron detail</p>
             <p className="text-[11px] text-muted-foreground">studio resin</p>
           </div>
@@ -446,16 +383,98 @@ function ToyCategories() {
 
 /* --------------------------- 360° viewer --------------------------- */
 function Explore360() {
+  const features = [
+    { icon: Sparkles, title: "Premium Print Quality", note: "25-micron layer precision" },
+    { icon: Wand2, title: "Personalized Designs", note: "Built around your idea" },
+    { icon: Leaf, title: "Eco-Friendly Materials", note: "Plant-based PLA options" },
+    { icon: ShieldCheck, title: "Durable Finish", note: "Sealed, hand-painted coats" },
+    { icon: Clock, title: "Fast Production", note: "Dispatch in 8–14 days" },
+    { icon: PackageCheck, title: "Secure Packaging", note: "Foam-cradled, insured" },
+  ];
+
   return (
-    <section className="container-lux py-20 md:py-28">
-      <SectionHeading
-        eyebrow="Interactive preview"
-        title="Explore Products in 360°"
-        subtitle="Experience our products from every angle with an interactive 360° viewer. Rotate, zoom and inspect every detail before placing your order."
+    <section className="relative overflow-hidden bg-night py-20 md:py-28">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-24 top-10 h-[26rem] w-[26rem] rounded-full bg-primary/25 blur-3xl animate-glow"
       />
-      <Reveal className="mt-14">
-        <Product360Viewer />
-      </Reveal>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-20 bottom-0 h-[22rem] w-[22rem] rounded-full bg-spark opacity-25 blur-3xl"
+      />
+      <div className="container-lux relative grid items-center gap-12 lg:grid-cols-2">
+        <Reveal>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary-foreground/70">
+            Interactive 3D showcase
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-bold text-primary-foreground sm:text-4xl">
+            Premium 3D Printed Collectibles
+          </h2>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/75 sm:text-base">
+            Designed with precision using high-quality 3D printing technology for
+            collectors, gifting, décor, anime lovers, gamers and custom figurines.
+          </p>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {features.map((f, i) => (
+              <Reveal key={f.title} delay={i * 70}>
+                <div className="glass group flex h-full items-start gap-3 rounded-2xl p-4 transition-all duration-500 hover:-translate-y-1 hover:shadow-glow">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary/20 text-primary-foreground">
+                    <f.icon className="h-4 w-4" />
+                  </span>
+                  <span>
+                    <span className="block text-sm font-semibold text-primary-foreground">
+                      {f.title}
+                    </span>
+                    <span className="block text-xs text-primary-foreground/65">
+                      {f.note}
+                    </span>
+                  </span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div className="relative overflow-hidden rounded-4xl border border-primary-foreground/15 bg-primary-foreground/5 p-2 backdrop-blur-xl">
+            <ModelViewer
+              controls
+              className="h-[24rem] w-full sm:h-[30rem] lg:h-[34rem]"
+              autoRotateSpeed={1}
+              label="Interactive 3D preview — rotate to explore the printed collectible"
+            />
+          </div>
+          <div className="mt-4 flex flex-wrap justify-center gap-2 text-[11px] font-medium text-primary-foreground/80">
+            {[
+              "Interactive 3D preview",
+              "Rotate to explore",
+              "Custom designed",
+              "High precision 3D printing",
+            ].map((l) => (
+              <span key={l} className="rounded-full border border-primary-foreground/15 bg-primary-foreground/8 px-3 py-1.5 backdrop-blur-md">
+                {l}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="container-lux relative mt-14 text-center">
+        <h3 className="font-display text-2xl font-bold text-primary-foreground sm:text-3xl">
+          Bring your ideas to life with 3D printing
+        </h3>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Button asChild variant="hero" size="lg">
+            <Link to="/custom-orders">
+              Get your custom model <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="bg-transparent text-primary-foreground hover:bg-primary-foreground/10">
+            <Link to="/contact">Request a free quote</Link>
+          </Button>
+        </div>
+      </div>
     </section>
   );
 }

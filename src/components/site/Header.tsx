@@ -4,13 +4,12 @@ import {
   Menu,
   Moon,
   Sun,
-  Heart,
   ShoppingBag,
   Phone,
   ChevronDown,
   X,
 } from "lucide-react";
-import logoAsset from "@/assets/logo.jpg.asset.json";
+import logoAsset from "@/assets/printopia-logo.png.asset.json";
 import { categories, company } from "@/lib/site";
 import { useTheme } from "@/hooks/use-theme";
 import { Button } from "@/components/ui/button";
@@ -76,24 +75,21 @@ export function Header() {
         onMouseLeave={() => setMega(false)}
       >
         <div className="container-lux grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 lg:flex lg:justify-between">
-          <Link to="/" className="flex min-w-0 shrink-0 items-center gap-3">
-            <span className="logo-plate grid h-12 w-12 shrink-0 place-items-center overflow-hidden">
-              <img
-                src={logoAsset.url}
-                alt="3D Printopia Verse logo"
-                width={96}
-                height={96}
-                decoding="async"
-                className="h-10 w-10 object-contain [image-rendering:auto]"
-              />
-            </span>
-            <span className="min-w-0">
-              <span className="block truncate font-display text-base font-bold text-ink lg:text-lg">
-                3D Printopia<span className="text-gradient"> Verse</span>
-              </span>
-              <span className="hidden text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:block">
-                Bringing imagination to life
-              </span>
+          <Link
+            to="/"
+            aria-label="3D Printopia Verse — home"
+            className="flex min-w-0 shrink-0 items-center gap-3 py-1"
+          >
+            <img
+              src={logoAsset.url}
+              alt="3D Printopia Verse logo"
+              width={512}
+              height={512}
+              decoding="async"
+              className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14 lg:h-[4.25rem] lg:w-[4.25rem]"
+            />
+            <span className="min-w-0 truncate font-display text-[15px] font-bold leading-none text-ink sm:text-base lg:text-xl">
+              3D Printopia<span className="text-gradient"> Verse</span>
             </span>
           </Link>
 
@@ -130,13 +126,6 @@ export function Header() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-1.5">
-            <Link
-              to="/products"
-              aria-label="Wishlist"
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-full hover:bg-muted"
-            >
-              <Heart className="h-[18px] w-[18px]" />
-            </Link>
             <Link
               to="/products"
               aria-label="Cart"
