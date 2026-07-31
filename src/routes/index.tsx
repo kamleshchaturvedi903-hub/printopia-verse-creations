@@ -437,7 +437,7 @@ function Explore360() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="glass relative overflow-hidden rounded-4xl p-2">
+          <div className="relative overflow-hidden rounded-4xl border border-primary-foreground/15 bg-primary-foreground/5 p-2 backdrop-blur-xl">
             <ModelViewer
               controls
               className="h-[24rem] w-full sm:h-[30rem] lg:h-[34rem]"
@@ -452,7 +452,7 @@ function Explore360() {
               "Custom designed",
               "High precision 3D printing",
             ].map((l) => (
-              <span key={l} className="glass rounded-full px-3 py-1.5">
+              <span key={l} className="rounded-full border border-primary-foreground/15 bg-primary-foreground/8 px-3 py-1.5 backdrop-blur-md">
                 {l}
               </span>
             ))}

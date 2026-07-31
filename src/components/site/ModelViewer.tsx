@@ -74,7 +74,7 @@ export function ModelViewer({
             type="button"
             onClick={() => orbitRef.current?.reset()}
             aria-label="Reset camera view"
-            className="glass grid h-10 w-10 place-items-center rounded-full text-ink transition-transform hover:scale-105"
+            className="grid h-10 w-10 place-items-center rounded-full border border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground backdrop-blur-md transition-transform hover:scale-105"
           >
             <RotateCcw className="h-4 w-4" />
           </button>
@@ -82,7 +82,7 @@ export function ModelViewer({
             type="button"
             onClick={requestFullscreen}
             aria-label="View model fullscreen"
-            className="glass grid h-10 w-10 place-items-center rounded-full text-ink transition-transform hover:scale-105"
+            className="grid h-10 w-10 place-items-center rounded-full border border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground backdrop-blur-md transition-transform hover:scale-105"
           >
             <Maximize2 className="h-4 w-4" />
           </button>
@@ -90,7 +90,7 @@ export function ModelViewer({
       )}
 
       {controls && (
-        <span className="glass pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold text-ink">
+        <span className="pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-3 py-1.5 text-[11px] font-semibold text-primary-foreground backdrop-blur-md">
           <Expand className="h-3.5 w-3.5 text-primary" /> Drag to rotate
         </span>
       )}
