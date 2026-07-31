@@ -4,13 +4,12 @@ import {
   Menu,
   Moon,
   Sun,
-  Heart,
   ShoppingBag,
   Phone,
   ChevronDown,
   X,
 } from "lucide-react";
-import logoAsset from "@/assets/logo.jpg.asset.json";
+import logoAsset from "@/assets/printopia-logo.png.asset.json";
 import { categories, company } from "@/lib/site";
 import { useTheme } from "@/hooks/use-theme";
 import { Button } from "@/components/ui/button";
@@ -127,13 +126,6 @@ export function Header() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-1.5">
-            <Link
-              to="/products"
-              aria-label="Wishlist"
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-full hover:bg-muted"
-            >
-              <Heart className="h-[18px] w-[18px]" />
-            </Link>
             <Link
               to="/products"
               aria-label="Cart"
