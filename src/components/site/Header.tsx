@@ -86,9 +86,9 @@ export function Header() {
               width={512}
               height={512}
               decoding="async"
-              className="h-14 w-14 shrink-0 object-contain sm:h-16 sm:w-16 lg:h-[4.5rem] lg:w-[4.5rem]"
+              className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14 lg:h-[4.25rem] lg:w-[4.25rem]"
             />
-            <span className="min-w-0 truncate font-display text-base font-bold leading-none text-ink lg:text-xl">
+            <span className="min-w-0 truncate font-display text-[15px] font-bold leading-none text-ink sm:text-base lg:text-xl">
               3D Printopia<span className="text-gradient"> Verse</span>
             </span>
           </Link>
