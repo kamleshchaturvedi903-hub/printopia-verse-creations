@@ -187,7 +187,15 @@ function FilterChip({
   );
 }
 
-function Tile({ item, onOpen }: { item: PortfolioItem; onOpen: () => void }) {
+function Tile({
+  item,
+  onOpen,
+  wide = false,
+}: {
+  item: PortfolioItem;
+  onOpen: () => void;
+  wide?: boolean;
+}) {
   return (
     <button
       type="button"
@@ -195,7 +203,11 @@ function Tile({ item, onOpen }: { item: PortfolioItem; onOpen: () => void }) {
       aria-label={`Open ${item.title} in full screen`}
       className="lift group relative block w-full overflow-hidden rounded-3xl border bg-card text-left focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
     >
-      <div className={`overflow-hidden ${item.tall ? "aspect-3/4" : "aspect-4/3"}`}>
+      <div
+        className={`overflow-hidden ${
+          wide ? "aspect-16/10 sm:aspect-21/9" : item.tall ? "aspect-3/4" : "aspect-4/3"
+        }`}
+      >
         <img
           src={item.image}
           alt={item.alt}
