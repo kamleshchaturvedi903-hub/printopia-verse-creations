@@ -33,12 +33,8 @@ export function PortfolioGrid({ grouped = true }: { grouped?: boolean }) {
     };
   }, [lightbox, move]);
 
-  const groups =
-    grouped && filter === "all"
-      ? portfolioCategories
-          .map((c) => ({ cat: c, items: shown.filter((i) => i.category === c.slug) }))
-          .filter((g) => g.items.length > 0)
-      : [{ cat: null, items: shown }];
+  const activeCat = portfolioCategories.find((c) => c.slug === filter) ?? null;
+  const groups = [{ cat: grouped ? activeCat : null, items: shown }];
 
   return (
     <>
