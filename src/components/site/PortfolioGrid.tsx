@@ -222,7 +222,10 @@ function Tile({
         <ZoomIn className="h-4 w-4" />
       </span>
       <span className="block p-5">
-        <span className="block font-display text-sm font-semibold text-ink">{item.title}</span>
+        <span className="block text-[11px] font-semibold tracking-[0.14em] text-primary uppercase">
+          {portfolioCategories.find((c) => c.slug === item.category)?.name ?? "Work"}
+        </span>
+        <span className="mt-1 block font-display text-sm font-semibold text-ink">{item.title}</span>
         <span className="mt-1 block text-xs text-muted-foreground">{item.meta}</span>
       </span>
     </button>
