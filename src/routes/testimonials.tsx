@@ -9,7 +9,7 @@ export const Route = createFileRoute("/testimonials")({
     meta: seo({
       title: "Customer Reviews of Our 3D Printed Figurines | 3D Printopia Verse",
       description:
-        "Read verified reviews from customers in India, the UK, UAE and Canada who ordered personalised 3D printed figurines, pet miniatures, wedding toppers and corporate gifts.",
+        "Read verified reviews from customers across India who ordered personalised 3D printed figurines, pet miniatures, wedding toppers and corporate gifts.",
     }),
   }),
   component: Testimonials,

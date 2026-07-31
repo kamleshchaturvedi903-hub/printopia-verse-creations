@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import {
   Menu,
   Moon,
-  Search,
   Sun,
   Heart,
   ShoppingBag,
@@ -42,7 +41,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mega, setMega] = useState(false);
   const [mobile, setMobile] = useState(false);
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -78,14 +76,15 @@ export function Header() {
         onMouseLeave={() => setMega(false)}
       >
         <div className="container-lux grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 lg:flex lg:justify-between">
-          <Link to="/" className="flex min-w-0 items-center gap-3">
-            <span className="logo-plate shrink-0">
+          <Link to="/" className="flex min-w-0 shrink-0 items-center gap-3">
+            <span className="logo-plate grid h-12 w-12 shrink-0 place-items-center overflow-hidden">
               <img
                 src={logoAsset.url}
                 alt="3D Printopia Verse logo"
-                width={40}
-                height={40}
-                className="h-10 w-10 object-contain"
+                width={96}
+                height={96}
+                decoding="async"
+                className="h-10 w-10 object-contain [image-rendering:auto]"
               />
             </span>
             <span className="min-w-0">
@@ -131,16 +130,6 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-1.5">
-            <div className="hidden items-center rounded-full border bg-muted/60 px-3 lg:flex">
-              <Search className="h-4 w-4 text-muted-foreground" />
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                aria-label="Search products"
-                placeholder="Search figurines…"
-                className="w-32 bg-transparent px-2 py-2 text-sm outline-hidden placeholder:text-muted-foreground focus:w-44"
-              />
-            </div>
             <Link
               to="/products"
               aria-label="Wishlist"

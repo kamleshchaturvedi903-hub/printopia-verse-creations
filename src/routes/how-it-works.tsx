@@ -49,7 +49,7 @@ const stages = [
     n: "06",
     title: "QC, packing & delivery",
     time: "1 day + transit",
-    text: "Photographed under studio lighting for your approval, packed in cut foam, dispatched with insured tracking across India and internationally.",
+    text: "Photographed under studio lighting for your approval, packed in cut foam, dispatched with insured tracking across India.",
   },
 ];
 

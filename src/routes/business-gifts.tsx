@@ -11,7 +11,7 @@ export const Route = createFileRoute("/business-gifts")({
     meta: seo({
       title: "Corporate Gifts & Branded 3D Printed Awards in Bulk | 3D Printopia Verse",
       description:
-        "Custom 3D printed corporate gifts, branded trophies, desk awards, nameplates and employee gifting from 25 to 5,000 units. Brand-colour matched, individually engraved, delivered worldwide.",
+        "Custom 3D printed corporate gifts, branded trophies, desk awards, nameplates and employee gifting from 25 to 5,000 units. Brand-colour matched, individually engraved, delivered across India.",
     }),
   }),
   component: Business,

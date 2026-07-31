@@ -94,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Premium custom 3D printing studio in Ahmedabad. Personalised figurines, anime collectibles, pet miniatures and corporate gifts shipped worldwide.",
+          "Premium custom 3D printing studio in Ahmedabad. Personalised figurines, anime collectibles, pet miniatures and corporate gifts delivered across India.",
       },
     ],
     links: [
