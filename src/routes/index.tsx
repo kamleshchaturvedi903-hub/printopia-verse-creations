@@ -14,7 +14,6 @@ import {
 import {
   blogPosts,
   categories,
-  clients,
   company,
   faqs,
   images,
@@ -33,6 +32,8 @@ import {
   Reveal,
   SectionHeading,
 } from "@/components/site/ui";
+import { PortfolioSlider } from "@/components/site/PortfolioSlider";
+import { Product360Viewer } from "@/components/site/Product360";
 import {
   Accordion,
   AccordionContent,
@@ -65,11 +66,12 @@ function Home() {
       <Categories />
       <BestSellers />
       <HowItWorks />
+      <PrintingPortfolio />
+      <Explore360 />
       <Showcase />
       <Stats />
       <BeforeAfter />
       <Testimonials />
-      <Clients />
       <FaqPreview />
       <LatestBlog />
       <CtaBand />
@@ -328,6 +330,53 @@ function HowItWorks() {
   );
 }
 
+/* ----------------------- Printing portfolio ----------------------- */
+function PrintingPortfolio() {
+  return (
+    <section className="relative overflow-hidden border-y bg-surface py-20 md:py-28">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-24 top-16 h-80 w-80 rounded-full bg-brand opacity-10 blur-3xl animate-float"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-spark opacity-10 blur-3xl animate-glow"
+      />
+      <div className="container-lux relative">
+        <SectionHeading
+          eyebrow="Portfolio"
+          title="Our Printing Portfolio"
+          subtitle="Explore some of our finest printing work delivered with premium quality, vibrant colours and exceptional finishing."
+        />
+        <Reveal className="mt-14">
+          <PortfolioSlider />
+        </Reveal>
+        <div className="mt-10 text-center">
+          <Button asChild variant="hero" size="lg">
+            <Link to="/gallery">Browse the full portfolio</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------- 360° viewer --------------------------- */
+function Explore360() {
+  return (
+    <section className="container-lux py-20 md:py-28">
+      <SectionHeading
+        eyebrow="Interactive preview"
+        title="Explore Products in 360°"
+        subtitle="Experience our products from every angle with an interactive 360° viewer. Rotate, zoom and inspect every detail before placing your order."
+      />
+      <Reveal className="mt-14">
+        <Product360Viewer />
+      </Reveal>
+    </section>
+  );
+}
+
 /* --------------------------- 3D showcase --------------------------- */
 function TiltCard({ src, label, note }: { src: string; label: string; note: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -532,28 +581,6 @@ function Testimonials() {
   );
 }
 
-/* ----------------------------- Clients ----------------------------- */
-function Clients() {
-  return (
-    <section className="border-y py-10">
-      <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-        Trusted by corporate gifting teams
-      </p>
-      <div className="mt-6 overflow-hidden">
-        <div className="flex w-max animate-marquee gap-14 pr-14">
-          {[...clients, ...clients].map((c, i) => (
-            <span
-              key={`${c}-${i}`}
-              className="font-display text-lg font-semibold text-muted-foreground/60"
-            >
-              {c}
-            </span>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* --------------------------- FAQ preview --------------------------- */
 function FaqPreview() {
