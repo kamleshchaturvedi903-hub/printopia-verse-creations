@@ -76,24 +76,21 @@ export function Header() {
         onMouseLeave={() => setMega(false)}
       >
         <div className="container-lux grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 lg:flex lg:justify-between">
-          <Link to="/" className="flex min-w-0 shrink-0 items-center gap-3">
-            <span className="logo-plate grid h-12 w-12 shrink-0 place-items-center overflow-hidden">
-              <img
-                src={logoAsset.url}
-                alt="3D Printopia Verse logo"
-                width={96}
-                height={96}
-                decoding="async"
-                className="h-10 w-10 object-contain [image-rendering:auto]"
-              />
-            </span>
-            <span className="min-w-0">
-              <span className="block truncate font-display text-base font-bold text-ink lg:text-lg">
-                3D Printopia<span className="text-gradient"> Verse</span>
-              </span>
-              <span className="hidden text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:block">
-                Bringing imagination to life
-              </span>
+          <Link
+            to="/"
+            aria-label="3D Printopia Verse — home"
+            className="flex min-w-0 shrink-0 items-center gap-3 py-1"
+          >
+            <img
+              src={logoAsset.url}
+              alt="3D Printopia Verse logo"
+              width={512}
+              height={512}
+              decoding="async"
+              className="h-14 w-14 shrink-0 object-contain sm:h-16 sm:w-16 lg:h-[4.5rem] lg:w-[4.5rem]"
+            />
+            <span className="min-w-0 truncate font-display text-base font-bold leading-none text-ink lg:text-xl">
+              3D Printopia<span className="text-gradient"> Verse</span>
             </span>
           </Link>
 
