@@ -71,11 +71,20 @@ export function PortfolioGrid({ grouped = true }: { grouped?: boolean }) {
                 <p className="text-sm text-muted-foreground">{g.cat.blurb}</p>
               </div>
             )}
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div
+              className={`grid gap-5 ${
+                g.items.length === 1
+                  ? "grid-cols-1"
+                  : g.items.length === 2
+                    ? "sm:grid-cols-2"
+                    : "sm:grid-cols-2 lg:grid-cols-3"
+              }`}
+            >
               {g.items.map((it, i) => (
                 <Reveal key={it.id} delay={((gi + i) % 6) * 60}>
                   <Tile
                     item={it}
+                    wide={g.items.length === 1}
                     onOpen={() => setLightbox(shown.findIndex((s) => s.id === it.id))}
                   />
                 </Reveal>
