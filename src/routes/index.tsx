@@ -192,7 +192,7 @@ function Hero() {
                 </Link>
               </Button>
             </div>
-            <div className="absolute left-4 top-4 flex gap-1.5">
+            <div className="absolute right-4 top-4 flex gap-1.5">
               {heroSlides.map((s, idx) => (
                 <button
                   key={s.slug}
