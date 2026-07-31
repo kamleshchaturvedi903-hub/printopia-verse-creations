@@ -93,7 +93,7 @@ export type Category = {
   slug: string;
   name: string;
   blurb: string;
-  image: toyRobot,
+  image: string;
   from: number;
 };
 
@@ -236,7 +236,7 @@ export const products: Product[] = [
     name: "Articulated Robot Buddy",
     category: "robot-toys",
     price: 1799,
-    image: catKids,
+    image: toyRobot,
     short: "Print-in-place robot with 14 movable joints. Zero assembly.",
     description:
       "A tough PLA+ robot that arrives fully articulated straight from the printer. Fourteen joints, swappable heads and a name plate on the chest. Drop-tested and finished with child-safe, non-toxic coatings.",
