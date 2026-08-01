@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Check, MessageCircle, Ruler, Star, Truck } from "lucide-react";
+import { Check, Instagram, MessageCircle, Ruler, Star, Truck } from "lucide-react";
 import { categories, company, products } from "@/lib/site";
 import { seo } from "@/lib/seo";
 import { CtaBand, Crumbs, ProductCard } from "@/components/site/ui";
@@ -159,6 +159,11 @@ function ProductDetail() {
               <Button asChild variant="outline" size="lg">
                 <a href={company.whatsappHref} target="_blank" rel="noreferrer">
                   <MessageCircle className="h-4 w-4" /> Ask a question
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href={company.instagram} target="_blank" rel="noreferrer">
+                  <Instagram className="h-4 w-4" /> See it on Instagram
                 </a>
               </Button>
             </div>
