@@ -104,14 +104,22 @@ function ProductDetail() {
               {p.description}
             </p>
 
-            <div className="mt-8 flex items-end gap-3">
+            <div className="mt-8 flex flex-wrap items-end gap-3">
               <span className="font-display text-4xl font-bold text-ink">
                 ₹{p.price.toLocaleString("en-IN")}
               </span>
-              {p.compareAt && (
-                <span className="pb-1 text-sm text-muted-foreground line-through">
-                  ₹{p.compareAt.toLocaleString("en-IN")}
-                </span>
+              {p.compareAt && p.compareAt > p.price && (
+                <>
+                  <span className="pb-1 text-sm text-muted-foreground line-through">
+                    ₹{p.compareAt.toLocaleString("en-IN")}
+                  </span>
+                  <span className="mb-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground">
+                    {Math.round(((p.compareAt - p.price) / p.compareAt) * 100)}% OFF
+                  </span>
+                  <span className="pb-1 text-sm font-semibold text-primary">
+                    You save ₹{(p.compareAt - p.price).toLocaleString("en-IN")}
+                  </span>
+                </>
               )}
               <span className="pb-1 text-xs text-muted-foreground">incl. taxes</span>
             </div>
