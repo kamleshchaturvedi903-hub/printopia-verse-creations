@@ -185,7 +185,7 @@ function Categories() {
       <SectionHeading
         eyebrow="Shop by category"
         title="Everything we make, sorted the way you shop"
-        subtitle="From a ₹399 keychain to a museum-grade family portrait — every category is produced in the same studio, by the same artists."
+        subtitle="From a ₹319 keychain to a museum-grade family portrait — ten categories, all produced in the same studio, by the same artists, all 20% off."
       />
       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {categories.map((c, i) => (
