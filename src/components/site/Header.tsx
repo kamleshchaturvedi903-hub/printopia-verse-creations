@@ -127,15 +127,6 @@ export function Header() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-1.5">
-            <a
-              href={company.instagram}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="3D Printopia Verse on Instagram"
-              className="hidden h-10 w-10 shrink-0 place-items-center rounded-full hover:bg-muted sm:grid"
-            >
-              <Instagram className="h-[18px] w-[18px]" />
-            </a>
             <Link
               to="/products"
               aria-label="Cart"
