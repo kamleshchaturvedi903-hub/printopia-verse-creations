@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
 import logoAsset from "@/assets/printopia-logo.png.asset.json";
 import { categories, company } from "@/lib/site";
@@ -47,7 +47,15 @@ export function Footer() {
             A premium custom 3D printing studio in Ahmedabad, crafting personalised
             figurines, collectibles and corporate gifts for customers across India.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <a
+            href={company.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/15"
+          >
+            <Instagram className="h-4 w-4" /> {company.instagramHandle}
+          </a>
+          <div className="mt-4 flex flex-wrap gap-2">
             {company.social.map((s) => (
               <a
                 key={s.label}
