@@ -5,6 +5,7 @@ import {
   BadgeCheck,
   Clock,
   Globe2,
+  Instagram,
   MessageCircle,
   Play,
   Quote,
@@ -21,6 +22,7 @@ import {
   company,
   faqs,
   images,
+  personalized,
   products,
   stats,
   steps,
@@ -68,6 +70,7 @@ function Home() {
       <TrustStrip />
       <Categories />
       <BestSellers />
+      <PersonalizedRange />
       <HowItWorks />
       <ToyCategories />
       <Explore360 />
@@ -75,6 +78,7 @@ function Home() {
       <Stats />
       <BeforeAfter />
       <Testimonials />
+      <InstagramStrip />
       <FaqPreview />
       <LatestBlog />
       <CtaBand />
@@ -181,7 +185,7 @@ function Categories() {
       <SectionHeading
         eyebrow="Shop by category"
         title="Everything we make, sorted the way you shop"
-        subtitle="From a ₹399 keychain to a museum-grade family portrait — every category is produced in the same studio, by the same artists."
+        subtitle="From a ₹319 keychain to a museum-grade family portrait — ten categories, all produced in the same studio, by the same artists, all 20% off."
       />
       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {categories.map((c, i) => (
@@ -772,6 +776,124 @@ function LatestBlog() {
           ))}
         </div>
       </div>
+    </section>
+  );
+}
+
+/* ---------------------- Personalized products ---------------------- */
+function PersonalizedRange() {
+  return (
+    <section className="container-lux py-20 md:py-28">
+      <SectionHeading
+        eyebrow="Personalised range"
+        title={
+          <>
+            Made for one person only — <span className="text-gradient">yours</span>
+          </>
+        }
+        subtitle="Name plates, photo lithophanes, keychains, trophies, mini figures and branded gift sets. All personalised, all printed in our Ahmedabad studio."
+      />
+
+      <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {personalized.map((item, i) => (
+          <Reveal key={item.slug} delay={i * 70}>
+            <Link
+              to="/products/$slug"
+              params={{ slug: item.slug }}
+              className="lift group flex h-full flex-col overflow-hidden rounded-3xl border bg-card"
+            >
+              <div className="relative aspect-4/3 overflow-hidden bg-muted">
+                <img
+                  src={item.image}
+                  alt={`${item.name} — personalised 3D printed gift by 3D Printopia Verse`}
+                  loading="lazy"
+                  width={1024}
+                  height={768}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-linear-to-t from-night/45 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="font-display text-base font-semibold text-ink">{item.name}</h3>
+                <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {item.blurb}
+                </p>
+                <p className="mt-4 text-sm font-semibold text-primary">
+                  From ₹{item.from.toLocaleString("en-IN")}
+                  <span className="ml-2 text-xs font-medium text-muted-foreground">
+                    after 20% off
+                  </span>
+                </p>
+              </div>
+            </Link>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------- Instagram --------------------------- */
+function InstagramStrip() {
+  const shots = products.slice(0, 6);
+
+  return (
+    <section className="container-lux py-20 md:py-28">
+      <Reveal>
+        <div className="relative overflow-hidden rounded-4xl border bg-card p-6 md:p-10">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-spark opacity-15 blur-3xl"
+          />
+          <div className="relative grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                <Instagram className="h-3.5 w-3.5" /> Instagram
+              </span>
+              <h2 className="mt-4 text-balance text-3xl font-bold leading-tight text-ink sm:text-4xl">
+                Watch every piece come to life
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                Behind-the-scenes prints, paint timelapses and unboxings from customers across
+                India. Follow {company.instagramHandle} for new drops first.
+              </p>
+              <Button asChild variant="hero" size="lg" className="mt-7">
+                <a href={company.instagram} target="_blank" rel="noreferrer">
+                  <Instagram className="h-4 w-4" /> Follow on Instagram
+                </a>
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3">
+              {shots.map((s) => (
+                <a
+                  key={s.slug}
+                  href={company.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${s.name} on our Instagram`}
+                  className="group relative aspect-square overflow-hidden rounded-2xl bg-muted"
+                >
+                  <img
+                    src={s.image}
+                    alt={`${s.name} — 3D Printopia Verse Instagram post`}
+                    loading="lazy"
+                    width={600}
+                    height={600}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <span className="absolute inset-0 grid place-items-center bg-night/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <Instagram className="h-5 w-5 text-primary-foreground" />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

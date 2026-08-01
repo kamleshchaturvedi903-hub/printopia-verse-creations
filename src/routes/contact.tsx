@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { company } from "@/lib/site";
 import { seo } from "@/lib/seo";
 import { CtaBand, PageHero } from "@/components/site/ui";
@@ -21,6 +21,7 @@ function Contact() {
     { icon: Phone, label: "Call us", value: company.phone, href: company.phoneHref },
     { icon: MessageCircle, label: "WhatsApp", value: "Chat with a designer", href: company.whatsappHref },
     { icon: Mail, label: "Email", value: company.email, href: company.emailHref },
+    { icon: Instagram, label: "Instagram", value: company.instagramHandle, href: company.instagram },
   ];
 
   return (

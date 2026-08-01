@@ -13,7 +13,7 @@ export function FloatingActions() {
   }, []);
 
   return (
-    <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3">
+    <div className="fixed bottom-5 right-20 z-40 flex flex-col items-end gap-3 sm:right-24">
       {show && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

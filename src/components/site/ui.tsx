@@ -150,14 +150,19 @@ export function PageHero({
 
 /* ---------- Product card ---------- */
 export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
+  const mrp = product.compareAt ?? product.price;
+  const saving = mrp - product.price;
+  const off = Math.round((saving / mrp) * 100);
+
   return (
     <Reveal delay={index * 60}>
-      <Link
-        to="/products/$slug"
-        params={{ slug: product.slug }}
-        className="lift group flex h-full flex-col overflow-hidden rounded-3xl border bg-card"
-      >
-        <div className="relative aspect-square overflow-hidden bg-muted">
+      <article className="lift group flex h-full flex-col overflow-hidden rounded-3xl border bg-card">
+        <Link
+          to="/products/$slug"
+          params={{ slug: product.slug }}
+          aria-label={`View details for ${product.name}`}
+          className="relative block aspect-square overflow-hidden bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        >
           <img
             src={product.image}
             alt={`${product.name} — custom 3D printed by 3D Printopia Verse`}
@@ -166,12 +171,17 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             height={900}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
+          {saving > 0 && (
+            <span className="absolute right-4 top-4 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground shadow-soft">
+              {off}% OFF
+            </span>
+          )}
           {product.badge && (
             <span className="absolute left-4 top-4 rounded-full bg-spark px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
               {product.badge}
             </span>
           )}
-        </div>
+        </Link>
         <div className="flex flex-1 flex-col p-5">
           <div className="flex items-center gap-1 text-accent">
             <Star className="h-3.5 w-3.5 fill-current" />
@@ -179,28 +189,50 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             <span className="text-xs text-muted-foreground">({product.reviews})</span>
           </div>
           <h3 className="mt-2 font-display text-base font-semibold text-ink">
-            {product.name}
+            <Link to="/products/$slug" params={{ slug: product.slug }} className="hover:text-primary">
+              {product.name}
+            </Link>
           </h3>
           <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted-foreground">
             {product.short}
           </p>
-          <div className="mt-4 flex items-center justify-between">
-            <div>
-              <span className="font-display text-lg font-bold text-ink">
-                ₹{product.price.toLocaleString("en-IN")}
-              </span>
-              {product.compareAt && (
-                <span className="ml-2 text-xs text-muted-foreground line-through">
-                  ₹{product.compareAt.toLocaleString("en-IN")}
-                </span>
-              )}
-            </div>
-            <span className="text-xs font-semibold text-primary transition-transform group-hover:translate-x-1">
-              View →
+
+          <div className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <span className="font-display text-lg font-bold text-ink">
+              ₹{product.price.toLocaleString("en-IN")}
             </span>
+            {saving > 0 && (
+              <>
+                <span className="text-xs text-muted-foreground line-through">
+                  ₹{mrp.toLocaleString("en-IN")}
+                </span>
+                <span className="text-xs font-semibold text-primary">
+                  Save ₹{saving.toLocaleString("en-IN")}
+                </span>
+              </>
+            )}
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            <Button asChild variant="outline" size="sm">
+              <Link to="/products/$slug" params={{ slug: product.slug }}>
+                View Details
+              </Link>
+            </Button>
+            <Button asChild variant="hero" size="sm">
+              <a
+                href={`https://wa.me/919399234699?text=${encodeURIComponent(
+                  `Hi 3D Printopia Verse, I'd like to order the ${product.name} (₹${product.price.toLocaleString("en-IN")}).`,
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Buy Now
+              </a>
+            </Button>
           </div>
         </div>
-      </Link>
+      </article>
     </Reveal>
   );
 }

@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Check, MessageCircle, Ruler, Star, Truck } from "lucide-react";
+import { Check, Instagram, MessageCircle, Ruler, Star, Truck } from "lucide-react";
 import { categories, company, products } from "@/lib/site";
 import { seo } from "@/lib/seo";
 import { CtaBand, Crumbs, ProductCard } from "@/components/site/ui";
@@ -104,14 +104,22 @@ function ProductDetail() {
               {p.description}
             </p>
 
-            <div className="mt-8 flex items-end gap-3">
+            <div className="mt-8 flex flex-wrap items-end gap-3">
               <span className="font-display text-4xl font-bold text-ink">
                 ₹{p.price.toLocaleString("en-IN")}
               </span>
-              {p.compareAt && (
-                <span className="pb-1 text-sm text-muted-foreground line-through">
-                  ₹{p.compareAt.toLocaleString("en-IN")}
-                </span>
+              {p.compareAt && p.compareAt > p.price && (
+                <>
+                  <span className="pb-1 text-sm text-muted-foreground line-through">
+                    ₹{p.compareAt.toLocaleString("en-IN")}
+                  </span>
+                  <span className="mb-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground">
+                    {Math.round(((p.compareAt - p.price) / p.compareAt) * 100)}% OFF
+                  </span>
+                  <span className="pb-1 text-sm font-semibold text-primary">
+                    You save ₹{(p.compareAt - p.price).toLocaleString("en-IN")}
+                  </span>
+                </>
               )}
               <span className="pb-1 text-xs text-muted-foreground">incl. taxes</span>
             </div>
@@ -151,6 +159,11 @@ function ProductDetail() {
               <Button asChild variant="outline" size="lg">
                 <a href={company.whatsappHref} target="_blank" rel="noreferrer">
                   <MessageCircle className="h-4 w-4" /> Ask a question
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href={company.instagram} target="_blank" rel="noreferrer">
+                  <Instagram className="h-4 w-4" /> See it on Instagram
                 </a>
               </Button>
             </div>
