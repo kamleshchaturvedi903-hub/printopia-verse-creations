@@ -153,8 +153,10 @@ export const company = {
   mapQuery: "Chandrapuri+Apartment+Vastrapur+Ahmedabad+380015",
   hours: "Mon – Sat · 10:00 AM – 8:00 PM IST",
   countries: ["India"],
+  instagram: "https://www.instagram.com/3d_printopia_verse",
+  instagramHandle: "@3d_printopia_verse",
   social: [
-    { label: "Instagram", href: "https://instagram.com" },
+    { label: "Instagram", href: "https://www.instagram.com/3d_printopia_verse" },
     { label: "Facebook", href: "https://facebook.com" },
     { label: "YouTube", href: "https://youtube.com" },
     { label: "Pinterest", href: "https://pinterest.com" },
