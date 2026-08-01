@@ -7,7 +7,7 @@ import {
   ShoppingBag,
   Phone,
   ChevronDown,
-  Instagram,
+
   X,
 } from "lucide-react";
 import logoAsset from "@/assets/printopia-logo.png.asset.json";
