@@ -1053,7 +1053,7 @@ export const faqs = [
   },
   {
     q: "What does a custom figurine cost?",
-    a: "Single-person figurines start at ₹3,499, couples from ₹4,999, and pet miniatures from ₹2,499. Final pricing depends on height, detail, number of figures and finish. You get a firm quote before any work begins.",
+    a: "Every listed price already includes our 20% studio discount. Single-person figurines start at ₹2,799, couples from ₹3,999, and pet miniatures from ₹1,999. Final pricing depends on height, detail, number of figures and finish. You get a firm quote before any work begins.",
   },
   {
     q: "Where do you deliver?",
