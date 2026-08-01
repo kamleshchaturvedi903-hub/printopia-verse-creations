@@ -6,7 +6,7 @@ import { Suspense, createElement as e, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Bounds, ContactShadows, Environment, OrbitControls, useGLTF } from "@react-three/drei";
 import type { Group } from "three";
-import modelAsset from "@/assets/hero-model.glb.asset.json";
+import modelAsset from "@/assets/hero-model-v2.glb.asset.json";
 
 function Model({ float }: { float: boolean }) {
   const ref = useRef<Group>(null);
@@ -39,6 +39,13 @@ export default function ModelCanvas({
       gl: { antialias: true, alpha: true },
       camera: { position: [0, 0.4, 3.2] as [number, number, number], fov: 40 },
       style: { background: "transparent" },
+      onCreated: ({ gl }: { gl: { domElement: HTMLCanvasElement } }) => {
+        // Let the page keep scrolling over the hero: block wheel from OrbitControls,
+        // while touch pinch-to-zoom still works.
+        gl.domElement.addEventListener("wheel", (ev: Event) => ev.stopPropagation(), {
+          capture: true,
+        });
+      },
     },
     e("ambientLight", { intensity: 0.6 }),
     e("directionalLight", { position: [4, 6, 4], intensity: 2.2 }),
@@ -58,7 +65,10 @@ export default function ModelCanvas({
     }),
     e(OrbitControls, {
       ref: controlsRef,
-      enableZoom: false,
+      enableZoom: true,
+      zoomSpeed: 0.8,
+      minDistance: 1.6,
+      maxDistance: 6,
       enablePan: false,
       enableDamping: true,
       dampingFactor: 0.06,
