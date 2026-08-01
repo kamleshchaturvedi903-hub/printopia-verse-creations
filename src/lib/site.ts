@@ -18,6 +18,32 @@ import toyGiftbox from "@/assets/toy-giftbox.jpg";
 import studioProcess from "@/assets/studio-process.jpg";
 import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
+import prAnimeChibi from "@/assets/pr-anime-chibi.jpg";
+import prAnimeMecha from "@/assets/pr-anime-mecha.jpg";
+import prAnimeSamurai from "@/assets/pr-anime-samurai.jpg";
+import prCorpOrganiser from "@/assets/pr-corp-organiser.jpg";
+import prCorpPaperweight from "@/assets/pr-corp-paperweight.jpg";
+import prDecorLamp from "@/assets/pr-decor-lamp.jpg";
+import prDecorPlanter from "@/assets/pr-decor-planter.jpg";
+import prDecorWallart from "@/assets/pr-decor-wallart.jpg";
+import prDinoRaptor from "@/assets/pr-dino-raptor.jpg";
+import prDinoStegosaurus from "@/assets/pr-dino-stegosaurus.jpg";
+import prDinoTriceratops from "@/assets/pr-dino-triceratops.jpg";
+import prFantCastle from "@/assets/pr-fant-castle.jpg";
+import prFantWizard from "@/assets/pr-fant-wizard.jpg";
+import prKidsBlocks from "@/assets/pr-kids-blocks.jpg";
+import prKidsRocket from "@/assets/pr-kids-rocket.jpg";
+import prRobotRetro from "@/assets/pr-robot-retro.jpg";
+import prRobotTitan from "@/assets/pr-robot-titan.jpg";
+import prVehRoadster from "@/assets/pr-veh-roadster.jpg";
+import prVehSuperbike from "@/assets/pr-veh-superbike.jpg";
+import prVehTruck from "@/assets/pr-veh-truck.jpg";
+import pzCorporate from "@/assets/pz-corporate.jpg";
+import pzKeychain from "@/assets/pz-keychain.jpg";
+import pzLithophane from "@/assets/pz-lithophane.jpg";
+import pzMinifigure from "@/assets/pz-minifigure.jpg";
+import pzNameplate from "@/assets/pz-nameplate.jpg";
+import pzTrophy from "@/assets/pz-trophy.jpg";
 
 export const images = {
   hero,
@@ -41,6 +67,52 @@ export const images = {
   heroSlide2,
   heroSlide3,
 };
+
+/** Personalized products showcase (homepage section). */
+export const personalized = [
+  {
+    name: "Personalised Name Plate",
+    blurb: "Backlit door or desk plate in your font, finish and brand colour.",
+    image: pzNameplate,
+    from: 1199,
+    slug: "personalised-nameplate",
+  },
+  {
+    name: "Photo Lithophane Lamp",
+    blurb: "Your favourite photograph, revealed in light through printed relief.",
+    image: pzLithophane,
+    from: 1599,
+    slug: "photo-lithophane-lamp",
+  },
+  {
+    name: "Custom Keychains",
+    blurb: "Names, logos or tiny faces — the perfect return gift at any volume.",
+    image: pzKeychain,
+    from: 719,
+    slug: "custom-keychain-pack",
+  },
+  {
+    name: "Engraved Award Trophy",
+    blurb: "Sculpted trophies with laser-etched recipient plates.",
+    image: pzTrophy,
+    from: 1519,
+    slug: "engraved-award-trophy",
+  },
+  {
+    name: "Mini Figure Of You",
+    blurb: "A 10 cm miniature of you, sculpted from photographs.",
+    image: pzMinifigure,
+    from: 2799,
+    slug: "mini-figure-of-you",
+  },
+  {
+    name: "Corporate Gift Set",
+    blurb: "Branded desk gifting, boxed and dispatched to multiple addresses.",
+    image: pzCorporate,
+    from: 999,
+    slug: "corporate-gift-set",
+  },
+];
 
 /** Hero banner auto-slider — 3 premium visuals, no layout shift. */
 export const heroSlides = [
