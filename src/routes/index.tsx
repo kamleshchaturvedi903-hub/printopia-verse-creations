@@ -5,6 +5,7 @@ import {
   BadgeCheck,
   Clock,
   Globe2,
+  Instagram,
   MessageCircle,
   Play,
   Quote,
@@ -21,6 +22,7 @@ import {
   company,
   faqs,
   images,
+  personalized,
   products,
   stats,
   steps,
@@ -68,6 +70,7 @@ function Home() {
       <TrustStrip />
       <Categories />
       <BestSellers />
+      <PersonalizedRange />
       <HowItWorks />
       <ToyCategories />
       <Explore360 />
@@ -75,6 +78,7 @@ function Home() {
       <Stats />
       <BeforeAfter />
       <Testimonials />
+      <InstagramStrip />
       <FaqPreview />
       <LatestBlog />
       <CtaBand />
