@@ -45,7 +45,7 @@ function Products() {
         crumbs={[{ label: "Products" }]}
         eyebrow="The collection"
         title="Custom 3D printed products, made to order"
-        subtitle="Twelve signature pieces across eight categories — every one of them customisable with your photos, names, colours and branding."
+        subtitle="Forty-four signature pieces across ten categories — every one of them customisable with your photos, names, colours and branding, and every price already 20% off."
       />
 
       <section className="container-lux py-14">
