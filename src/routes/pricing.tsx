@@ -9,7 +9,7 @@ export const Route = createFileRoute("/pricing")({
     meta: seo({
       title: "3D Printing Prices in India — Figurine Cost Guide | 3D Printopia Verse",
       description:
-        "Transparent pricing for custom 3D printed figurines with 20% off: single person from ₹2,799, couples from ₹3,999, pets from ₹1,999, corporate gifting from ₹639 per unit.",
+        "Transparent pricing for custom 3D printed figurines with 35% off: single person from ₹2,299, couples from ₹3,299, pets from ₹1,599, corporate gifting from ₹519 per unit.",
     }),
   }),
   component: Pricing,
@@ -18,14 +18,14 @@ export const Route = createFileRoute("/pricing")({
 const plans = [
   {
     name: "Signature",
-    price: "₹2,799",
+    price: "₹2,299",
     unit: "per figure",
     text: "One person, 10 cm tall, hand-painted with a plain base. The perfect first order.",
     features: ["10 cm height", "Single figure", "Hand-painted finish", "360° preview", "8–12 day delivery"],
   },
   {
     name: "Premium",
-    price: "₹5,599",
+    price: "₹4,599",
     unit: "per piece",
     featured: true,
     text: "Our most-ordered tier: two figures or one highly detailed 15 cm sculpt with props.",
@@ -40,7 +40,7 @@ const plans = [
   },
   {
     name: "Masterpiece",
-    price: "₹10,399+",
+    price: "₹8,499+",
     unit: "quoted individually",
     text: "Family groups, wedding scenes and 20 cm+ collector statues with effect parts.",
     features: [
@@ -54,16 +54,16 @@ const plans = [
 ];
 
 const table = [
-  ["Pet miniature (8–10 cm)", "₹1,999 – ₹3,199"],
-  ["Single person figurine (10–15 cm)", "₹2,799 – ₹4,399"],
-  ["Couple statue / cake topper", "₹3,999 – ₹5,599"],
-  ["Anime / gaming collectible (20 cm)", "₹4,399 – ₹7,199"],
-  ["Family group (3–5 figures)", "₹7,199 – ₹15,199"],
-  ["Scale vehicle model (1:24)", "₹3,439 – ₹5,999"],
-  ["Articulated toy / robot", "₹1,039 – ₹1,999"],
-  ["Corporate award (25+ units)", "₹639 – ₹1,519 per unit"],
-  ["Personalised keychains (pack of 10)", "₹719"],
-  ["LED nameplate", "₹1,199 – ₹2,799"],
+  ["Pet miniature (8–10 cm)", "₹1,599 – ₹2,599"],
+  ["Single person figurine (10–15 cm)", "₹2,299 – ₹4,399"],
+  ["Couple statue / cake topper", "₹3,999 – ₹4,599"],
+  ["Anime / gaming collectible (20 cm)", "₹3,599 – ₹5,899"],
+  ["Family group (3–5 figures)", "₹5,899 – ₹12,499"],
+  ["Scale vehicle model (1:24)", "₹2,799 – ₹4,899"],
+  ["Articulated toy / robot", "₹849 – ₹1,599"],
+  ["Corporate award (25+ units)", "₹519 – ₹1,249 per unit"],
+  ["Personalised keychains (pack of 10)", "₹589"],
+  ["LED nameplate", "₹1,199 – ₹2,299"],
 ];
 
 function Pricing() {
