@@ -39,6 +39,9 @@ import {
   SectionHeading,
 } from "@/components/site/ui";
 import { ModelViewer } from "@/components/site/ModelViewer";
+import { ProductCarousel } from "@/components/site/ProductCarousel";
+import { AnimeCollection } from "@/components/site/AnimeCollection";
+import showcaseModel from "@/assets/showcase-model.glb.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -70,10 +73,12 @@ function Home() {
       <TrustStrip />
       <Categories />
       <BestSellers />
+      <AnimeCollection />
       <PersonalizedRange />
       <HowItWorks />
       <ToyCategories />
       <Explore360 />
+      <Explore3DSecond />
       <Showcase />
       <Stats />
       <BeforeAfter />
@@ -246,8 +251,8 @@ function BestSellers() {
           ))}
         </div>
 
-        <div className="mt-16 grid gap-6 rounded-4xl border bg-card p-6 md:grid-cols-[auto_1fr] md:items-center md:p-10">
-          <div className="max-w-sm">
+        <div className="mt-16 rounded-4xl border bg-card p-6 md:p-10">
+          <div className="max-w-xl">
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
               New arrivals
             </span>
@@ -259,10 +264,8 @@ function BestSellers() {
               engraved base.
             </p>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {fresh.map((p, i) => (
-              <ProductCard key={p.slug} product={p} index={i} />
-            ))}
+          <div className="mt-10">
+            <ProductCarousel products={fresh} label="New arrivals" />
           </div>
         </div>
       </div>
@@ -478,6 +481,74 @@ function Explore360() {
             <Link to="/contact">Request a free quote</Link>
           </Button>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------- Second 3D showcase ---------------------- */
+function Explore3DSecond() {
+  return (
+    <section className="relative overflow-hidden border-t border-primary-foreground/10 bg-night py-20 md:py-28">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 top-10 h-[26rem] w-[26rem] rounded-full bg-primary/25 blur-3xl animate-glow"
+      />
+      <div className="container-lux relative grid items-center gap-12 lg:grid-cols-2">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-4xl border border-primary-foreground/15 bg-primary-foreground/5 p-2 backdrop-blur-xl">
+            <ModelViewer
+              controls
+              src={showcaseModel.url}
+              className="h-[24rem] w-full sm:h-[30rem] lg:h-[34rem]"
+              autoRotateSpeed={0.8}
+              label="Interactive 3D preview of a second printed collectible — drag to rotate"
+            />
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary-foreground/70">
+            Interactive 3D showcase · II
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-bold text-primary-foreground sm:text-4xl">
+            Explore another studio sculpt in full 3D
+          </h2>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/75 sm:text-base">
+            Drag to rotate, pinch to zoom and inspect every printed surface. This is the same
+            geometry we send to the printer — no renders, no retouching.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-primary-foreground/80">
+            {[
+              "Auto rotate",
+              "Drag & touch controls",
+              "Pinch to zoom",
+              "Soft realistic lighting",
+            ].map((l) => (
+              <span
+                key={l}
+                className="rounded-full border border-primary-foreground/15 bg-primary-foreground/8 px-3 py-1.5 backdrop-blur-md"
+              >
+                {l}
+              </span>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild variant="hero" size="lg">
+              <Link to="/custom-orders">
+                Customise this model <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+            >
+              <Link to="/products">Browse the collection</Link>
+            </Button>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -8,9 +8,9 @@ import { Bounds, ContactShadows, Environment, OrbitControls, useGLTF } from "@re
 import type { Group } from "three";
 import modelAsset from "@/assets/hero-model-v2.glb.asset.json";
 
-function Model({ float }: { float: boolean }) {
+function Model({ float, src }: { float: boolean; src: string }) {
   const ref = useRef<Group>(null);
-  const { scene } = useGLTF(modelAsset.url);
+  const { scene } = useGLTF(src);
 
   useFrame((state) => {
     if (!ref.current || !float) return;
@@ -25,10 +25,12 @@ useGLTF.preload(modelAsset.url);
 export default function ModelCanvas({
   float = true,
   autoRotateSpeed = 0.8,
+  src = modelAsset.url,
   controlsRef,
 }: {
   float?: boolean;
   autoRotateSpeed?: number;
+  src?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   controlsRef?: React.MutableRefObject<any>;
 }) {
@@ -53,7 +55,7 @@ export default function ModelCanvas({
     e(
       Suspense,
       { fallback: null },
-      e(Bounds, { fit: true, clip: true, observe: true, margin: 1.15 }, e(Model, { float })),
+      e(Bounds, { fit: true, clip: true, observe: true, margin: 1.15 }, e(Model, { float, src })),
       e(Environment, { preset: "city" }),
     ),
     e(ContactShadows, {

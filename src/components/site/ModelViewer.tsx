@@ -16,11 +16,13 @@ export function ModelViewer({
   className = "",
   controls = false,
   autoRotateSpeed = 0.8,
+  src,
   label = "Interactive 3D preview of a premium 3D printed collectible",
 }: {
   className?: string;
   controls?: boolean;
   autoRotateSpeed?: number;
+  src?: string;
   label?: string;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -61,7 +63,7 @@ export function ModelViewer({
       <ClientOnly fallback={<Skeleton />}>
         {visible ? (
           <Suspense fallback={<Skeleton />}>
-            <ModelCanvas autoRotateSpeed={autoRotateSpeed} controlsRef={orbitRef} />
+            <ModelCanvas autoRotateSpeed={autoRotateSpeed} src={src} controlsRef={orbitRef} />
           </Suspense>
         ) : (
           <Skeleton />

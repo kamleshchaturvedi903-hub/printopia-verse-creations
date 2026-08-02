@@ -271,8 +271,8 @@ export type Product = {
   badge?: "Best Seller" | "New" | "Limited";
 };
 
-/** Every listed price carries a 20% studio discount off the original MRP. */
-export const DISCOUNT = 0.2;
+/** Every listed price carries a 35% studio discount off the original MRP. */
+export const DISCOUNT = 0.35;
 
 type RawProduct = Omit<Product, "compareAt">;
 
@@ -1053,7 +1053,7 @@ export const faqs = [
   },
   {
     q: "What does a custom figurine cost?",
-    a: "Every listed price already includes our 20% studio discount. Single-person figurines start at ₹2,799, couples from ₹3,999, and pet miniatures from ₹1,999. Final pricing depends on height, detail, number of figures and finish. You get a firm quote before any work begins.",
+    a: "Every listed price already includes our 35% studio discount. Single-person figurines start at ₹2,299, couples from ₹3,299, and pet miniatures from ₹1,599. Final pricing depends on height, detail, number of figures and finish. You get a firm quote before any work begins.",
   },
   {
     q: "Where do you deliver?",
