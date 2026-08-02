@@ -55,15 +55,15 @@ const plans = [
 
 const table = [
   ["Pet miniature (8–10 cm)", "₹1,599 – ₹2,599"],
-  ["Single person figurine (10–15 cm)", "₹2,299 – ₹4,399"],
-  ["Couple statue / cake topper", "₹3,999 – ₹4,599"],
+  ["Single person figurine (10–15 cm)", "₹2,299 – ₹3,599"],
+  ["Couple statue / cake topper", "₹3,299 – ₹4,599"],
   ["Anime / gaming collectible (20 cm)", "₹3,599 – ₹5,899"],
   ["Family group (3–5 figures)", "₹5,899 – ₹12,499"],
   ["Scale vehicle model (1:24)", "₹2,799 – ₹4,899"],
   ["Articulated toy / robot", "₹849 – ₹1,599"],
   ["Corporate award (25+ units)", "₹519 – ₹1,249 per unit"],
   ["Personalised keychains (pack of 10)", "₹589"],
-  ["LED nameplate", "₹1,199 – ₹2,299"],
+  ["LED nameplate", "₹979 – ₹2,299"],
 ];
 
 function Pricing() {
