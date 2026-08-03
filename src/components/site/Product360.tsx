@@ -118,7 +118,7 @@ export function Product360Viewer() {
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-brand opacity-20 blur-3xl"
+          className="pointer-events-none absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-brand opacity-20 blur-2xl"
         />
 
         {!loaded && (
