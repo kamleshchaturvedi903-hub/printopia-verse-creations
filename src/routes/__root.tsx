@@ -14,7 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CookieConsent, FloatingActions } from "@/components/site/FloatingActions";
-import { ChatAssistant } from "@/components/site/ChatAssistant";
+
 import { Toaster } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
 import { organizationSchema } from "@/lib/seo";
@@ -149,7 +149,7 @@ function RootComponent() {
         <Footer />
       </div>
       <FloatingActions />
-      <ChatAssistant />
+
       <CookieConsent />
       <Toaster position="top-center" richColors />
     </QueryClientProvider>
