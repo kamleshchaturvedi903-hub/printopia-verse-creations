@@ -1,21 +1,25 @@
-export const animeSeries = ["Demon Slayer", "Solo Leveling"] as const;
-export type AnimeSeries = (typeof animeSeries)[number];
+import nezuko from "@/assets/anime-nezuko.webp";
+import tanjiro from "@/assets/anime-tanjiro.webp";
+import zenitsu from "@/assets/anime-zenitsu.webp";
+import inosuke from "@/assets/anime-inosuke.webp";
+import shinobu from "@/assets/anime-shinobu.webp";
+import akaza from "@/assets/anime-akaza.webp";
+import muzan from "@/assets/anime-muzan.webp";
+import daki from "@/assets/anime-daki.webp";
 
 export type AnimeCharacter = {
   name: string;
-  series: AnimeSeries;
-  /** Populated once the official character artwork is uploaded. */
-  image?: string;
+  tagline: string;
+  image: string;
 };
 
 export const animeCharacters: AnimeCharacter[] = [
-  { name: "Nezuko Kamado", series: "Demon Slayer" },
-  { name: "Tanjiro Kamado", series: "Demon Slayer" },
-  { name: "Zenitsu Agatsuma", series: "Demon Slayer" },
-  { name: "Inosuke Hashibira", series: "Demon Slayer" },
-  { name: "Akaza", series: "Demon Slayer" },
-  { name: "Daki", series: "Demon Slayer" },
-  { name: "Shinobu Kocho", series: "Demon Slayer" },
-  { name: "Muzan Kibutsuji", series: "Demon Slayer" },
-  { name: "Yoo Jinho", series: "Solo Leveling" },
+  { name: "Nezuko Kamado", tagline: "Hand-painted collectible", image: nezuko },
+  { name: "Tanjiro Kamado", tagline: "Battle-pose sculpt", image: tanjiro },
+  { name: "Zenitsu Agatsuma", tagline: "Thunder breathing edition", image: zenitsu },
+  { name: "Inosuke Hashibira", tagline: "Dual-blade sculpt", image: inosuke },
+  { name: "Shinobu Kocho", tagline: "Butterfly detail finish", image: shinobu },
+  { name: "Akaza", tagline: "Dynamic combat pose", image: akaza },
+  { name: "Muzan Kibutsuji", tagline: "Signature white suit", image: muzan },
+  { name: "Daki", tagline: "Ornate kimono detailing", image: daki },
 ];
