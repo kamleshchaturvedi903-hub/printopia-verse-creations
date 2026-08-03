@@ -97,11 +97,11 @@ function Hero() {
     <section className="relative overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-40 top-10 h-[28rem] w-[28rem] rounded-full bg-brand opacity-15 blur-3xl animate-glow"
+        className="pointer-events-none absolute -left-40 top-10 h-[28rem] w-[28rem] rounded-full bg-brand opacity-15 blur-2xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 top-52 h-[24rem] w-[24rem] rounded-full bg-spark opacity-15 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-52 h-[24rem] w-[24rem] rounded-full bg-spark opacity-15 blur-2xl"
       />
       <div className="container-lux grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_1fr] lg:py-24">
         <div className="animate-rise">
@@ -147,7 +147,7 @@ function Hero() {
         <div className="relative">
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-8 rounded-full bg-primary/20 blur-3xl animate-glow"
+            className="pointer-events-none absolute inset-8 rounded-full bg-primary/20 blur-2xl"
           />
           <ModelViewer
             className="relative h-[22rem] w-full sm:h-[26rem] lg:h-[34rem]"
@@ -337,11 +337,11 @@ function ToyCategories() {
     <section className="relative overflow-hidden border-y bg-surface py-20 md:py-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-24 top-16 h-80 w-80 rounded-full bg-brand opacity-10 blur-3xl animate-float"
+        className="pointer-events-none absolute -left-24 top-16 h-80 w-80 rounded-full bg-brand opacity-10 blur-2xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-spark opacity-10 blur-3xl animate-glow"
+        className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-spark opacity-10 blur-2xl"
       />
       <div className="container-lux relative">
         <SectionHeading
@@ -403,11 +403,11 @@ function Explore360() {
     <section className="relative overflow-hidden bg-night py-20 md:py-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-24 top-10 h-[26rem] w-[26rem] rounded-full bg-primary/25 blur-3xl animate-glow"
+        className="pointer-events-none absolute -left-24 top-10 h-[26rem] w-[26rem] rounded-full bg-primary/25 blur-2xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-20 bottom-0 h-[22rem] w-[22rem] rounded-full bg-spark opacity-25 blur-3xl"
+        className="pointer-events-none absolute -right-20 bottom-0 h-[22rem] w-[22rem] rounded-full bg-spark opacity-25 blur-2xl"
       />
       <div className="container-lux relative grid items-center gap-12 lg:grid-cols-2">
         <Reveal>
@@ -492,7 +492,7 @@ function Explore3DSecond() {
     <section className="relative overflow-hidden border-t border-primary-foreground/10 bg-night py-20 md:py-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 top-10 h-[26rem] w-[26rem] rounded-full bg-primary/25 blur-3xl animate-glow"
+        className="pointer-events-none absolute -right-24 top-10 h-[26rem] w-[26rem] rounded-full bg-primary/25 blur-2xl"
       />
       <div className="container-lux relative grid items-center gap-12 lg:grid-cols-2">
         <Reveal>
@@ -593,7 +593,7 @@ function Showcase() {
     <section className="relative overflow-hidden bg-night py-20 md:py-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/3 top-0 h-96 w-96 rounded-full bg-spark opacity-25 blur-3xl animate-glow"
+        className="pointer-events-none absolute left-1/3 top-0 h-96 w-96 rounded-full bg-spark opacity-25 blur-2xl"
       />
       <div className="container-lux relative">
         <div className="mx-auto max-w-2xl text-center">
@@ -917,7 +917,7 @@ function InstagramStrip() {
         <div className="relative overflow-hidden rounded-4xl border bg-card p-6 md:p-10">
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-spark opacity-15 blur-3xl"
+            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-spark opacity-15 blur-2xl"
           />
           <div className="relative grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-center">
             <div>

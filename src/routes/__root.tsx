@@ -24,7 +24,7 @@ function NotFoundComponent() {
     <div className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-4">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-spark opacity-15 blur-3xl animate-glow"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-spark opacity-15 blur-2xl"
       />
       <div className="relative max-w-lg text-center">
         <p className="font-display text-[7rem] font-bold leading-none text-gradient">404</p>

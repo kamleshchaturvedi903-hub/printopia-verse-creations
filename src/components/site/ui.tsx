@@ -121,11 +121,11 @@ export function PageHero({
     <section className="relative overflow-hidden border-b bg-surface">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 -top-40 h-96 w-96 rounded-full bg-spark opacity-20 blur-3xl animate-glow"
+        className="pointer-events-none absolute -right-32 -top-40 h-96 w-96 rounded-full bg-spark opacity-20 blur-2xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-40 -left-24 h-80 w-80 rounded-full bg-brand opacity-15 blur-3xl"
+        className="pointer-events-none absolute -bottom-40 -left-24 h-80 w-80 rounded-full bg-brand opacity-15 blur-2xl"
       />
       <div className="container-lux relative py-16 md:py-24">
         <Crumbs items={crumbs} />
@@ -282,11 +282,11 @@ export function CtaBand({
         <div className="relative overflow-hidden rounded-4xl bg-night px-6 py-16 text-center md:px-16">
           <div
             aria-hidden
-            className="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-spark opacity-30 blur-3xl animate-glow"
+            className="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-spark opacity-30 blur-2xl"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-brand opacity-25 blur-3xl"
+            className="pointer-events-none absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-brand opacity-25 blur-2xl"
           />
           <div className="relative mx-auto max-w-2xl">
             <h2 className="text-balance text-3xl font-bold text-primary-foreground sm:text-4xl">
