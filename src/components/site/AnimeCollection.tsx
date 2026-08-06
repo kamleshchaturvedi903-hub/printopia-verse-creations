@@ -27,8 +27,8 @@ function AnimeCollectionBase() {
               Popular Anime Collection
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/70 sm:text-base">
-              Collector-grade sculpts printed at 25 microns, hand-painted and fully
-              customisable in size, pose and base.
+              Collector-grade sculpts printed at 25 microns, hand-painted and fully customisable in
+              size, pose and base.
             </p>
           </div>
         </Reveal>

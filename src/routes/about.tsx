@@ -55,24 +55,23 @@ function About() {
             src={images.hero}
             alt="3D printed miniature figurines produced at the 3D Printopia Verse studio"
             loading="lazy"
+            decoding="async"
             width={1600}
             height={1000}
             className="aspect-4/3 w-full rounded-4xl border object-cover shadow-lift"
           />
         </Reveal>
         <div>
-          <h2 className="font-display text-3xl font-bold text-ink">
-            What we actually do all day
-          </h2>
+          <h2 className="font-display text-3xl font-bold text-ink">What we actually do all day</h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            We turn photographs into physical objects. That sounds simple until you try to
-            sculpt someone's grandmother from four blurry photos and get the smile right.
+            We turn photographs into physical objects. That sounds simple until you try to sculpt
+            someone's grandmother from four blurry photos and get the smile right.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Our team of sculptors, print technicians and miniature painters handles every
-            stage in-house: digital sculpting, resin printing at 25 microns, support removal,
-            curing, sanding, priming, airbrushing, detail work and packing. Nothing is sent
-            to a third-party workshop.
+            Our team of sculptors, print technicians and miniature painters handles every stage
+            in-house: digital sculpting, resin printing at 25 microns, support removal, curing,
+            sanding, priming, airbrushing, detail work and packing. Nothing is sent to a third-party
+            workshop.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             Today we deliver across {company.countries.join(", ")} — but the studio is still in
@@ -115,9 +114,7 @@ function About() {
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
                   <v.icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-5 font-display text-base font-semibold text-ink">
-                  {v.title}
-                </h3>
+                <h3 className="mt-5 font-display text-base font-semibold text-ink">{v.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.text}</p>
               </div>
             </Reveal>

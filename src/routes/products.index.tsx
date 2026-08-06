@@ -136,8 +136,7 @@ function Products() {
                   Nothing matches those filters
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  We build bespoke pieces every day — describe what you want and we'll quote
-                  it.
+                  We build bespoke pieces every day — describe what you want and we'll quote it.
                 </p>
                 <Button asChild variant="hero" className="mt-6">
                   <Link to="/custom-orders">Request a custom piece</Link>

@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { observeOnce } from "@/lib/in-view";
 import type { Product } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 
 /* ---------- Scroll reveal ---------- */
-export function Reveal({
+export const Reveal = memo(function Reveal({
   children,
   delay = 0,
   className,
@@ -21,17 +22,7 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.12 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    return observeOnce(el, () => setShown(true), "0px");
   }, []);
 
   return (
@@ -47,7 +38,7 @@ export function Reveal({
       {children}
     </div>
   );
-}
+});
 
 /* ---------- Section heading ---------- */
 export function SectionHeading({
@@ -83,7 +74,10 @@ export function SectionHeading({
 /* ---------- Breadcrumbs ---------- */
 export function Crumbs({ items }: { items: { label: string; to?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
+    <nav
+      aria-label="Breadcrumb"
+      className="flex flex-wrap items-center gap-1 text-xs text-muted-foreground"
+    >
       <Link to="/" className="hover:text-primary">
         Home
       </Link>
@@ -138,9 +132,7 @@ export function PageHero({
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {subtitle}
-          </p>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">{subtitle}</p>
         )}
         {children && <div className="mt-8">{children}</div>}
       </div>
@@ -167,6 +159,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             src={product.image}
             alt={`${product.name} — custom 3D printed by 3D Printopia Verse`}
             loading="lazy"
+            decoding="async"
             width={900}
             height={900}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -189,7 +182,11 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             <span className="text-xs text-muted-foreground">({product.reviews})</span>
           </div>
           <h3 className="mt-2 font-display text-base font-semibold text-ink">
-            <Link to="/products/$slug" params={{ slug: product.slug }} className="hover:text-primary">
+            <Link
+              to="/products/$slug"
+              params={{ slug: product.slug }}
+              className="hover:text-primary"
+            >
               {product.name}
             </Link>
           </h3>

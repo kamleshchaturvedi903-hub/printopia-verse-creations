@@ -49,9 +49,7 @@ function Testimonials() {
                 </blockquote>
                 <figcaption className="mt-5 text-sm font-semibold text-ink">
                   {t.name}
-                  <span className="block text-xs font-normal text-muted-foreground">
-                    {t.role}
-                  </span>
+                  <span className="block text-xs font-normal text-muted-foreground">{t.role}</span>
                 </figcaption>
               </figure>
             </Reveal>

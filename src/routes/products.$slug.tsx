@@ -58,17 +58,14 @@ export const Route = createFileRoute("/products/$slug")({
 function ProductDetail() {
   const { product: p } = Route.useLoaderData();
   const category = categories.find((c) => c.slug === p.category);
-  const related = products.filter((x) => x.category === p.category && x.slug !== p.slug).slice(0, 3);
+  const related = products
+    .filter((x) => x.category === p.category && x.slug !== p.slug)
+    .slice(0, 3);
 
   return (
     <>
       <section className="container-lux py-10">
-        <Crumbs
-          items={[
-            { label: "Products", to: "/products" },
-            { label: p.name },
-          ]}
-        />
+        <Crumbs items={[{ label: "Products", to: "/products" }, { label: p.name }]} />
 
         <div className="mt-8 grid gap-12 lg:grid-cols-2">
           <div className="overflow-hidden rounded-4xl border shadow-lift">
@@ -87,9 +84,7 @@ function ProductDetail() {
                 {p.badge}
               </span>
             )}
-            <h1 className="mt-4 text-balance text-3xl font-bold text-ink sm:text-4xl">
-              {p.name}
-            </h1>
+            <h1 className="mt-4 text-balance text-3xl font-bold text-ink sm:text-4xl">{p.name}</h1>
             <div className="mt-3 flex items-center gap-2 text-sm">
               <span className="flex text-accent">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -100,9 +95,7 @@ function ProductDetail() {
               <span className="text-muted-foreground">({p.reviews} verified reviews)</span>
             </div>
 
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              {p.description}
-            </p>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">{p.description}</p>
 
             <div className="mt-8 flex flex-wrap items-end gap-3">
               <span className="font-display text-4xl font-bold text-ink">

@@ -18,16 +18,44 @@ export const Route = createFileRoute("/business-gifts")({
 });
 
 const tiers = [
-  { units: "25 – 99 units", perks: ["Custom design included", "Brand colour matching", "7–12 day dispatch"], price: "from ₹1,899/unit" },
-  { units: "100 – 499 units", perks: ["Dedicated account manager", "Individual name engraving", "Gift boxing included"], price: "from ₹1,299/unit" },
-  { units: "500+ units", perks: ["Volume pricing", "Multi-address dispatch", "Annual design refresh"], price: "custom quote" },
+  {
+    units: "25 – 99 units",
+    perks: ["Custom design included", "Brand colour matching", "7–12 day dispatch"],
+    price: "from ₹1,899/unit",
+  },
+  {
+    units: "100 – 499 units",
+    perks: ["Dedicated account manager", "Individual name engraving", "Gift boxing included"],
+    price: "from ₹1,299/unit",
+  },
+  {
+    units: "500+ units",
+    perks: ["Volume pricing", "Multi-address dispatch", "Annual design refresh"],
+    price: "custom quote",
+  },
 ];
 
 const useCases = [
-  { icon: Building2, title: "Client gifting", text: "Desk pieces built around your product or logo geometry — the kind that stay on a shelf for years." },
-  { icon: Boxes, title: "Employee awards", text: "Recognition trophies with individually engraved names, no minimum per design." },
-  { icon: Package, title: "Event giveaways", text: "Keychains, badges and miniatures for conferences, launches and exhibitions." },
-  { icon: Timer, title: "Rush programmes", text: "Tight deadline? We've delivered 300-unit programmes in eighteen days." },
+  {
+    icon: Building2,
+    title: "Client gifting",
+    text: "Desk pieces built around your product or logo geometry — the kind that stay on a shelf for years.",
+  },
+  {
+    icon: Boxes,
+    title: "Employee awards",
+    text: "Recognition trophies with individually engraved names, no minimum per design.",
+  },
+  {
+    icon: Package,
+    title: "Event giveaways",
+    text: "Keychains, badges and miniatures for conferences, launches and exhibitions.",
+  },
+  {
+    icon: Timer,
+    title: "Rush programmes",
+    text: "Tight deadline? We've delivered 300-unit programmes in eighteen days.",
+  },
 ];
 
 function Business() {
@@ -50,6 +78,7 @@ function Business() {
             src={images.corporate}
             alt="Custom branded 3D printed corporate trophy, nameplate and keychain"
             loading="lazy"
+            decoding="async"
             width={900}
             height={900}
             className="aspect-4/3 w-full rounded-4xl border object-cover shadow-lift"
@@ -60,9 +89,7 @@ function Business() {
             <Reveal key={u.title} delay={i * 70}>
               <div className="h-full rounded-3xl border bg-card p-6">
                 <u.icon className="h-5 w-5 text-primary" />
-                <h2 className="mt-4 font-display text-base font-semibold text-ink">
-                  {u.title}
-                </h2>
+                <h2 className="mt-4 font-display text-base font-semibold text-ink">{u.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{u.text}</p>
               </div>
             </Reveal>
@@ -98,7 +125,10 @@ function Business() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-4">
             {clients.map((c) => (
-              <span key={c} className="font-display text-base font-semibold text-muted-foreground/60">
+              <span
+                key={c}
+                className="font-display text-base font-semibold text-muted-foreground/60"
+              >
                 {c}
               </span>
             ))}

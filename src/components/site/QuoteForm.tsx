@@ -68,14 +68,26 @@ export function QuoteForm({
             <label htmlFor="qf-name" className="text-xs font-semibold text-ink">
               Full name*
             </label>
-            <input id="qf-name" name="name" maxLength={100} className={`${fieldBase} mt-1.5`} placeholder="Krishna Gujre" />
+            <input
+              id="qf-name"
+              name="name"
+              maxLength={100}
+              className={`${fieldBase} mt-1.5`}
+              placeholder="Krishna Gujre"
+            />
             <Err name="name" />
           </div>
           <div>
             <label htmlFor="qf-phone" className="text-xs font-semibold text-ink">
               Phone / WhatsApp*
             </label>
-            <input id="qf-phone" name="phone" maxLength={20} className={`${fieldBase} mt-1.5`} placeholder="+91 90000 00000" />
+            <input
+              id="qf-phone"
+              name="phone"
+              maxLength={20}
+              className={`${fieldBase} mt-1.5`}
+              placeholder="+91 90000 00000"
+            />
             <Err name="phone" />
           </div>
         </div>
@@ -85,14 +97,26 @@ export function QuoteForm({
             <label htmlFor="qf-email" className="text-xs font-semibold text-ink">
               Email*
             </label>
-            <input id="qf-email" name="email" type="email" maxLength={255} className={`${fieldBase} mt-1.5`} placeholder="you@email.com" />
+            <input
+              id="qf-email"
+              name="email"
+              type="email"
+              maxLength={255}
+              className={`${fieldBase} mt-1.5`}
+              placeholder="you@email.com"
+            />
             <Err name="email" />
           </div>
           <div>
             <label htmlFor="qf-type" className="text-xs font-semibold text-ink">
               What would you like made?*
             </label>
-            <select id="qf-type" name="projectType" defaultValue="" className={`${fieldBase} mt-1.5`}>
+            <select
+              id="qf-type"
+              name="projectType"
+              defaultValue=""
+              className={`${fieldBase} mt-1.5`}
+            >
               <option value="" disabled>
                 Select an option
               </option>
@@ -156,7 +180,9 @@ export function QuoteForm({
             className="mt-1.5 flex cursor-pointer items-center gap-3 rounded-xl border border-dashed px-4 py-4 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary"
           >
             <Upload className="h-4 w-4" />
-            {files.length ? `${files.length} file(s) selected` : "Upload photos (JPG, PNG, STL · max 10)"}
+            {files.length
+              ? `${files.length} file(s) selected`
+              : "Upload photos (JPG, PNG, STL · max 10)"}
           </label>
           <input
             id="qf-files"
@@ -165,7 +191,11 @@ export function QuoteForm({
             accept="image/*,.stl,.obj"
             className="sr-only"
             onChange={(e) =>
-              setFiles(Array.from(e.target.files ?? []).slice(0, 10).map((f) => f.name))
+              setFiles(
+                Array.from(e.target.files ?? [])
+                  .slice(0, 10)
+                  .map((f) => f.name),
+              )
             }
           />
           {files.length > 0 && (

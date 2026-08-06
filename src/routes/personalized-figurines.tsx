@@ -38,24 +38,37 @@ export const Route = createFileRoute("/personalized-figurines")({
       description:
         "Custom human figurines sculpted from your photographs — miniature you, couples, families, babies and pets. Hand-painted resin, free 360° preview, delivery in 8–14 days.",
     }),
-    scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqSchema(pageFaqs)) },
-    ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema(pageFaqs)) }],
   }),
   component: Personalized,
 });
 
 const steps = [
-  { icon: Camera, title: "Send photos", text: "6–10 clear shots: front, both profiles, three-quarter and one full-body." },
-  { icon: Sparkles, title: "We sculpt", text: "A digital artist builds face, hair, outfit and posture, then sends a 360° render." },
-  { icon: Palette, title: "Print & paint", text: "25-micron resin printing, then hand-painting down to eye colour and jewellery." },
+  {
+    icon: Camera,
+    title: "Send photos",
+    text: "6–10 clear shots: front, both profiles, three-quarter and one full-body.",
+  },
+  {
+    icon: Sparkles,
+    title: "We sculpt",
+    text: "A digital artist builds face, hair, outfit and posture, then sends a 360° render.",
+  },
+  {
+    icon: Palette,
+    title: "Print & paint",
+    text: "25-micron resin printing, then hand-painting down to eye colour and jewellery.",
+  },
 ];
 
 function Personalized() {
   const featured = products.filter((p) =>
-    ["mini-me-family-portrait", "superhero-action-figure", "baby-memory-figurine", "pet-miniature-portrait"].includes(
-      p.slug,
-    ),
+    [
+      "mini-me-family-portrait",
+      "superhero-action-figure",
+      "baby-memory-figurine",
+      "pet-miniature-portrait",
+    ].includes(p.slug),
   );
 
   return (
@@ -83,6 +96,7 @@ function Personalized() {
               src={images.hero}
               alt="Personalised 3D printed family figurines hand-painted in resin"
               loading="lazy"
+              decoding="async"
               width={1600}
               height={1000}
               className="aspect-4/3 w-full rounded-4xl border object-cover shadow-lift"
@@ -94,8 +108,8 @@ function Personalized() {
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               Automated photo-to-3D scanning produces something that resembles a person. Hand
-              sculpting produces something that <em>is</em> the person — the asymmetry of a
-              smile, the way a shirt sits on the shoulders, the exact curl of the hair.
+              sculpting produces something that <em>is</em> the person — the asymmetry of a smile,
+              the way a shirt sits on the shoulders, the exact curl of the hair.
             </p>
             <ul className="mt-6 grid gap-2.5 text-sm text-muted-foreground">
               {[
@@ -124,9 +138,7 @@ function Personalized() {
                   <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
                     <s.icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-5 font-display text-lg font-semibold text-ink">
-                    {s.title}
-                  </h3>
+                  <h3 className="mt-5 font-display text-lg font-semibold text-ink">{s.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
                 </div>
               </Reveal>

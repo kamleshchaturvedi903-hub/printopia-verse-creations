@@ -31,13 +31,7 @@ import {
 } from "@/lib/site";
 import { seo, faqSchema } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import {
-  Counter,
-  CtaBand,
-  ProductCard,
-  Reveal,
-  SectionHeading,
-} from "@/components/site/ui";
+import { Counter, CtaBand, ProductCard, Reveal, SectionHeading } from "@/components/site/ui";
 import { ModelViewer } from "@/components/site/ModelViewer";
 import { ProductCarousel } from "@/components/site/ProductCarousel";
 import { AnimeCollection } from "@/components/site/AnimeCollection";
@@ -205,6 +199,7 @@ function Categories() {
                   src={c.image}
                   alt={`${c.name} — custom 3D printed products`}
                   loading="lazy"
+                  decoding="async"
                   width={900}
                   height={900}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -212,9 +207,7 @@ function Categories() {
               </div>
               <div className="p-5">
                 <h3 className="font-display text-base font-semibold text-ink">{c.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {c.blurb}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.blurb}</p>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-primary">
                   From ₹{c.from} →
                 </p>
@@ -260,8 +253,8 @@ function BestSellers() {
               Fresh out of the print bed
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              New sculpts released every month. Early buyers get launch pricing and a free
-              engraved base.
+              New sculpts released every month. Early buyers get launch pricing and a free engraved
+              base.
             </p>
           </div>
           <div className="mt-10">
@@ -418,8 +411,8 @@ function Explore360() {
             Premium 3D Printed Collectibles
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/75 sm:text-base">
-            Designed with precision using high-quality 3D printing technology for
-            collectors, gifting, décor, anime lovers, gamers and custom figurines.
+            Designed with precision using high-quality 3D printing technology for collectors,
+            gifting, décor, anime lovers, gamers and custom figurines.
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -433,9 +426,7 @@ function Explore360() {
                     <span className="block text-sm font-semibold text-primary-foreground">
                       {f.title}
                     </span>
-                    <span className="block text-xs text-primary-foreground/65">
-                      {f.note}
-                    </span>
+                    <span className="block text-xs text-primary-foreground/65">{f.note}</span>
                   </span>
                 </div>
               </Reveal>
@@ -459,7 +450,10 @@ function Explore360() {
               "Custom designed",
               "High precision 3D printing",
             ].map((l) => (
-              <span key={l} className="rounded-full border border-primary-foreground/15 bg-primary-foreground/8 px-3 py-1.5 backdrop-blur-md">
+              <span
+                key={l}
+                className="rounded-full border border-primary-foreground/15 bg-primary-foreground/8 px-3 py-1.5 backdrop-blur-md"
+              >
                 {l}
               </span>
             ))}
@@ -477,7 +471,12 @@ function Explore360() {
               Get your custom model <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="bg-transparent text-primary-foreground hover:bg-primary-foreground/10">
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+          >
             <Link to="/contact">Request a free quote</Link>
           </Button>
         </div>
@@ -576,6 +575,7 @@ function TiltCard({ src, label, note }: { src: string; label: string; note: stri
         src={src}
         alt={label}
         loading="lazy"
+        decoding="async"
         width={900}
         height={900}
         className="aspect-square w-full object-cover"
@@ -604,8 +604,8 @@ function Showcase() {
             Move your cursor. Look closer.
           </h2>
           <p className="mt-4 text-primary-foreground/70">
-            Every surface you see here was printed, sanded, primed and painted by hand in
-            our Ahmedabad studio.
+            Every surface you see here was printed, sanded, primed and painted by hand in our
+            Ahmedabad studio.
           </p>
         </div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -657,18 +657,17 @@ function BeforeAfter() {
             src={images.anime}
             alt="Finished hand-painted 3D printed anime figurine"
             loading="lazy"
+            decoding="async"
             width={900}
             height={900}
             className="aspect-square w-full object-cover"
           />
-          <div
-            className="absolute inset-0 overflow-hidden"
-            style={{ width: `${pos}%` }}
-          >
+          <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
             <img
               src={images.anime}
               alt="Unpainted raw 3D print before finishing"
               loading="lazy"
+              decoding="async"
               width={900}
               height={900}
               className="aspect-square w-full object-cover grayscale contrast-75 brightness-90"
@@ -758,7 +757,6 @@ function Testimonials() {
   );
 }
 
-
 /* --------------------------- FAQ preview --------------------------- */
 function FaqPreview() {
   return (
@@ -827,6 +825,7 @@ function LatestBlog() {
                   src={p.image}
                   alt={p.title}
                   loading="lazy"
+                  decoding="async"
                   width={900}
                   height={600}
                   className="aspect-16/10 w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -838,9 +837,7 @@ function LatestBlog() {
                   <h3 className="mt-3 font-display text-lg font-semibold leading-snug text-ink">
                     {p.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {p.excerpt}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.excerpt}</p>
                 </div>
               </Link>
             </Reveal>
@@ -878,6 +875,7 @@ function PersonalizedRange() {
                   src={item.image}
                   alt={`${item.name} — personalised 3D printed gift by 3D Printopia Verse`}
                   loading="lazy"
+                  decoding="async"
                   width={1024}
                   height={768}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -952,6 +950,7 @@ function InstagramStrip() {
                     src={s.image}
                     alt={`${s.name} — 3D Printopia Verse Instagram post`}
                     loading="lazy"
+                    decoding="async"
                     width={600}
                     height={600}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"

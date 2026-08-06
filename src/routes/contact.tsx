@@ -19,9 +19,19 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const cards = [
     { icon: Phone, label: "Call us", value: company.phone, href: company.phoneHref },
-    { icon: MessageCircle, label: "WhatsApp", value: "Chat with a designer", href: company.whatsappHref },
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: "Chat with a designer",
+      href: company.whatsappHref,
+    },
     { icon: Mail, label: "Email", value: company.email, href: company.emailHref },
-    { icon: Instagram, label: "Instagram", value: company.instagramHandle, href: company.instagram },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      value: company.instagramHandle,
+      href: company.instagram,
+    },
   ];
 
   return (
@@ -51,9 +61,7 @@ function Contact() {
                   <span className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                     {c.label}
                   </span>
-                  <span className="block truncate text-sm font-semibold text-ink">
-                    {c.value}
-                  </span>
+                  <span className="block truncate text-sm font-semibold text-ink">{c.value}</span>
                 </span>
               </a>
             ))}
@@ -63,9 +71,7 @@ function Contact() {
             <h2 className="flex items-center gap-2 font-display text-base font-bold text-ink">
               <MapPin className="h-4 w-4 text-primary" /> Studio address
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              {company.address}
-            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{company.address}</p>
             <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="h-4 w-4 text-primary" /> {company.hours}
             </p>

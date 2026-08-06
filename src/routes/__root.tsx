@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { Suspense, lazy, useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -15,7 +15,23 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CookieConsent, FloatingActions } from "@/components/site/FloatingActions";
 
-import { Toaster } from "@/components/ui/sonner";
+import { onIdle } from "@/lib/in-view";
+
+// Toasts are never visible on first paint — keep sonner out of the initial bundle.
+const Toaster = lazy(() =>
+  import("@/components/ui/sonner").then((m) => ({ default: m.Toaster })),
+);
+
+function DeferredToaster() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => onIdle(() => setReady(true)), []);
+  if (!ready) return null;
+  return (
+    <Suspense fallback={null}>
+      <DeferredToaster />
+    </Suspense>
+  );
+}
 import { Button } from "@/components/ui/button";
 import { organizationSchema } from "@/lib/seo";
 
@@ -32,8 +48,8 @@ function NotFoundComponent() {
           This model didn't finish printing
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          The page you're looking for has moved or never existed. Let's get you back to
-          something beautiful — browse the collection or tell us what you'd like made.
+          The page you're looking for has moved or never existed. Let's get you back to something
+          beautiful — browse the collection or tell us what you'd like made.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button asChild variant="hero">
@@ -151,7 +167,7 @@ function RootComponent() {
       <FloatingActions />
 
       <CookieConsent />
-      <Toaster position="top-center" richColors />
+      <DeferredToaster />
     </QueryClientProvider>
   );
 }

@@ -13,8 +13,7 @@ export function PortfolioGrid({ grouped = true }: { grouped?: boolean }) {
   );
 
   const move = useCallback(
-    (dir: number) =>
-      setLightbox((v) => (v == null ? v : (v + dir + shown.length) % shown.length)),
+    (dir: number) => setLightbox((v) => (v == null ? v : (v + dir + shown.length) % shown.length)),
     [shown.length],
   );
 
@@ -43,11 +42,7 @@ export function PortfolioGrid({ grouped = true }: { grouped?: boolean }) {
           All work
         </FilterChip>
         {portfolioCategories.map((c) => (
-          <FilterChip
-            key={c.slug}
-            active={filter === c.slug}
-            onClick={() => setFilter(c.slug)}
-          >
+          <FilterChip key={c.slug} active={filter === c.slug} onClick={() => setFilter(c.slug)}>
             {c.name}
           </FilterChip>
         ))}
@@ -58,10 +53,7 @@ export function PortfolioGrid({ grouped = true }: { grouped?: boolean }) {
           <section key={g.cat?.slug ?? "filtered"} aria-labelledby={`pf-${g.cat?.slug ?? "all"}`}>
             {g.cat && (
               <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b pb-3">
-                <h3
-                  id={`pf-${g.cat.slug}`}
-                  className="font-display text-xl font-semibold text-ink"
-                >
+                <h3 id={`pf-${g.cat.slug}`} className="font-display text-xl font-semibold text-ink">
                   {g.cat.name}
                 </h3>
                 <p className="text-sm text-muted-foreground">{g.cat.blurb}</p>
@@ -112,9 +104,7 @@ export function PortfolioGrid({ grouped = true }: { grouped?: boolean }) {
                 <span className="block font-display text-sm font-semibold text-ink">
                   {shown[lightbox].title}
                 </span>
-                <span className="block text-xs text-muted-foreground">
-                  {shown[lightbox].meta}
-                </span>
+                <span className="block text-xs text-muted-foreground">{shown[lightbox].meta}</span>
               </span>
               <span className="text-xs text-muted-foreground">
                 {lightbox + 1} / {shown.length}
