@@ -28,17 +28,22 @@ export default function ModelCanvas({
   autoRotateSpeed = 0.8,
   src = modelAsset.url,
   controlsRef,
+  active = true,
 }: {
   float?: boolean;
   autoRotateSpeed?: number;
   src?: string;
+  active?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   controlsRef?: React.MutableRefObject<any>;
 }) {
   return e(
     Canvas,
     {
-      dpr: [1, 2] as [number, number],
+      dpr: [1, 1.75] as [number, number],
+      // Stop rendering entirely while the model is scrolled out of view.
+      frameloop: active ? ("always" as const) : ("never" as const),
+      performance: { min: 0.4 },
       gl: { antialias: true, alpha: true },
       camera: { position: [0, 0.4, 3.2] as [number, number, number], fov: 40 },
       style: { background: "transparent" },

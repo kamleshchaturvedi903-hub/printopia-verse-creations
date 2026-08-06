@@ -28,16 +28,16 @@ export function ModelViewer({
   const wrapRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<{ reset: () => void } | null>(null);
   const [visible, setVisible] = useState(false);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
     const io = new IntersectionObserver(
       (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setVisible(true);
-          io.disconnect();
-        }
+        const onScreen = entries.some((e) => e.isIntersecting);
+        setActive(onScreen);
+        if (onScreen) setVisible(true);
       },
       { rootMargin: "200px" },
     );
@@ -63,7 +63,12 @@ export function ModelViewer({
       <ClientOnly fallback={<Skeleton />}>
         {visible ? (
           <Suspense fallback={<Skeleton />}>
-            <ModelCanvas autoRotateSpeed={autoRotateSpeed} src={src} controlsRef={orbitRef} />
+            <ModelCanvas
+              autoRotateSpeed={autoRotateSpeed}
+              src={src}
+              controlsRef={orbitRef}
+              active={active}
+            />
           </Suspense>
         ) : (
           <Skeleton />
