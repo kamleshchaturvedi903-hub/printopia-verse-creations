@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { observeOnce } from "@/lib/in-view";
 import type { Product } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 
 /* ---------- Scroll reveal ---------- */
-export function Reveal({
+export const Reveal = memo(function Reveal({
   children,
   delay = 0,
   className,
@@ -21,17 +22,7 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.12 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    return observeOnce(el, () => setShown(true), "0px");
   }, []);
 
   return (
@@ -47,7 +38,8 @@ export function Reveal({
       {children}
     </div>
   );
-}
+});
+
 
 /* ---------- Section heading ---------- */
 export function SectionHeading({
