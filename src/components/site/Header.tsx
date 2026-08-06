@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Menu, Moon, Sun, ShoppingBag, Phone, ChevronDown, X } from "lucide-react";
-import logoAsset from "@/assets/printopia-logo.png.asset.json";
+import logoAsset from "@/assets/printopia-logo.webp.asset.json";
 import { categories, company } from "@/lib/site";
 import { useTheme } from "@/hooks/use-theme";
 import { Button } from "@/components/ui/button";

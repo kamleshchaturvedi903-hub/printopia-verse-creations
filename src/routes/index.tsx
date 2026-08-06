@@ -41,7 +41,7 @@ import {
 import { ModelViewer } from "@/components/site/ModelViewer";
 import { ProductCarousel } from "@/components/site/ProductCarousel";
 import { AnimeCollection } from "@/components/site/AnimeCollection";
-import showcaseModel from "@/assets/showcase-model.glb.asset.json";
+import showcaseModel from "@/assets/showcase-model-v2.glb.asset.json";
 import {
   Accordion,
   AccordionContent,

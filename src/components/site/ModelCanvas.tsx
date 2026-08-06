@@ -6,7 +6,7 @@ import { Suspense, createElement as e, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Bounds, ContactShadows, Environment, OrbitControls, useGLTF } from "@react-three/drei";
 import type { Group } from "three";
-import modelAsset from "@/assets/hero-model-v2.glb.asset.json";
+import modelAsset from "@/assets/hero-model-v3.glb.asset.json";
 
 function Model({ float, src }: { float: boolean; src: string }) {
   const ref = useRef<Group>(null);
