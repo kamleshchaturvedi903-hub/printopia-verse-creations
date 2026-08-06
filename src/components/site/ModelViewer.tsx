@@ -30,20 +30,27 @@ export function ModelViewer({
   const [visible, setVisible] = useState(false);
   const [active, setActive] = useState(false);
 
+  // Keep the WebGL/three.js chunk off the critical path: only start loading it
+  // once the browser is idle after first paint AND the viewer is on screen.
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
+    let cancelIdle = () => {};
     const io = new IntersectionObserver(
       (entries) => {
         const onScreen = entries.some((e) => e.isIntersecting);
         setActive(onScreen);
-        if (onScreen) setVisible(true);
+        if (onScreen) cancelIdle = onIdle(() => setVisible(true));
       },
       { rootMargin: "200px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      cancelIdle();
+    };
   }, []);
+
 
   const requestFullscreen = () => {
     const el = wrapRef.current;
