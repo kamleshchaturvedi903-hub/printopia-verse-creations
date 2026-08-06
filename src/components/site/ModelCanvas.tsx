@@ -6,11 +6,12 @@ import { Suspense, createElement as e, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Bounds, ContactShadows, Environment, OrbitControls, useGLTF } from "@react-three/drei";
 import type { Group } from "three";
-import modelAsset from "@/assets/hero-model-v2.glb.asset.json";
+import modelAsset from "@/assets/hero-model-v3.glb.asset.json";
 
 function Model({ float, src }: { float: boolean; src: string }) {
   const ref = useRef<Group>(null);
-  const { scene } = useGLTF(src);
+  // `true` enables the Draco decoder — models are Draco-compressed for fast download.
+  const { scene } = useGLTF(src, true);
 
   useFrame((state) => {
     if (!ref.current || !float) return;
@@ -20,24 +21,29 @@ function Model({ float, src }: { float: boolean; src: string }) {
   return e("group", { ref }, e("primitive", { object: scene }));
 }
 
-useGLTF.preload(modelAsset.url);
+useGLTF.preload(modelAsset.url, true);
 
 export default function ModelCanvas({
   float = true,
   autoRotateSpeed = 0.8,
   src = modelAsset.url,
   controlsRef,
+  active = true,
 }: {
   float?: boolean;
   autoRotateSpeed?: number;
   src?: string;
+  active?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   controlsRef?: React.MutableRefObject<any>;
 }) {
   return e(
     Canvas,
     {
-      dpr: [1, 2] as [number, number],
+      dpr: [1, 1.75] as [number, number],
+      // Stop rendering entirely while the model is scrolled out of view.
+      frameloop: active ? ("always" as const) : ("never" as const),
+      performance: { min: 0.4 },
       gl: { antialias: true, alpha: true },
       camera: { position: [0, 0.4, 3.2] as [number, number, number], fov: 40 },
       style: { background: "transparent" },

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
-import logoAsset from "@/assets/printopia-logo.png.asset.json";
+import logoAsset from "@/assets/printopia-logo.webp.asset.json";
 import { categories, company } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 

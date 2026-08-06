@@ -5,26 +5,26 @@
  * entry to `portfolioItems`. Every image is used exactly once — keep it that
  * way to avoid duplicates.
  */
-import hero from "@/assets/hero.jpg";
-import catKids from "@/assets/cat-kids.jpg";
-import catCouple from "@/assets/cat-couple.jpg";
-import catVehicles from "@/assets/cat-vehicles.jpg";
-import catAnime from "@/assets/cat-anime.jpg";
-import catPets from "@/assets/cat-pets.jpg";
-import catCorporate from "@/assets/cat-corporate.jpg";
-import toyDinosaur from "@/assets/toy-dinosaur.jpg";
-import toyRobot from "@/assets/toy-robot.jpg";
-import toyPanda from "@/assets/toy-panda.jpg";
-import toyDragon from "@/assets/toy-dragon.jpg";
-import toyAstronaut from "@/assets/toy-astronaut.jpg";
-import toyElephant from "@/assets/toy-elephant.jpg";
-import toyUnicorn from "@/assets/toy-unicorn.jpg";
-import toyTeddy from "@/assets/toy-teddy.jpg";
-import toyCat from "@/assets/toy-cat.jpg";
-import toyGiftbox from "@/assets/toy-giftbox.jpg";
-import studioProcess from "@/assets/studio-process.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
-import heroSlide3 from "@/assets/hero-slide-3.jpg";
+import hero from "@/assets/hero.webp";
+import catKids from "@/assets/cat-kids.webp";
+import catCouple from "@/assets/cat-couple.webp";
+import catVehicles from "@/assets/cat-vehicles.webp";
+import catAnime from "@/assets/cat-anime.webp";
+import catPets from "@/assets/cat-pets.webp";
+import catCorporate from "@/assets/cat-corporate.webp";
+import toyDinosaur from "@/assets/toy-dinosaur.webp";
+import toyRobot from "@/assets/toy-robot.webp";
+import toyPanda from "@/assets/toy-panda.webp";
+import toyDragon from "@/assets/toy-dragon.webp";
+import toyAstronaut from "@/assets/toy-astronaut.webp";
+import toyElephant from "@/assets/toy-elephant.webp";
+import toyUnicorn from "@/assets/toy-unicorn.webp";
+import toyTeddy from "@/assets/toy-teddy.webp";
+import toyCat from "@/assets/toy-cat.webp";
+import toyGiftbox from "@/assets/toy-giftbox.webp";
+import studioProcess from "@/assets/studio-process.webp";
+import heroSlide2 from "@/assets/hero-slide-2.webp";
+import heroSlide3 from "@/assets/hero-slide-3.webp";
 
 export type PortfolioCategory = {
   slug: string;
