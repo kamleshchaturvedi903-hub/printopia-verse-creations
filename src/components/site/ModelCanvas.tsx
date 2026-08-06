@@ -10,7 +10,8 @@ import modelAsset from "@/assets/hero-model-v3.glb.asset.json";
 
 function Model({ float, src }: { float: boolean; src: string }) {
   const ref = useRef<Group>(null);
-  const { scene } = useGLTF(src);
+  // `true` enables the Draco decoder — models are Draco-compressed for fast download.
+  const { scene } = useGLTF(src, true);
 
   useFrame((state) => {
     if (!ref.current || !float) return;
@@ -20,7 +21,7 @@ function Model({ float, src }: { float: boolean; src: string }) {
   return e("group", { ref }, e("primitive", { object: scene }));
 }
 
-useGLTF.preload(modelAsset.url);
+useGLTF.preload(modelAsset.url, true);
 
 export default function ModelCanvas({
   float = true,
