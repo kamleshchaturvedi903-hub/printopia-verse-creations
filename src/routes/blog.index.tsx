@@ -54,6 +54,7 @@ function Blog() {
                 src={featured.image}
                 alt={featured.title}
                 loading="lazy"
+                decoding="async"
                 width={900}
                 height={700}
                 className="h-full w-full object-cover"
@@ -86,6 +87,7 @@ function Blog() {
                   src={p.image}
                   alt={p.title}
                   loading="lazy"
+                  decoding="async"
                   width={900}
                   height={600}
                   className="aspect-16/10 w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -97,9 +99,7 @@ function Blog() {
                   <h3 className="mt-3 font-display text-lg font-semibold leading-snug text-ink">
                     {p.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {p.excerpt}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.excerpt}</p>
                 </div>
               </Link>
             </Reveal>

@@ -20,7 +20,11 @@ export const Route = createFileRoute("/blog/$slug")({
     }
     const p = loaderData.post;
     return {
-      meta: seo({ title: `${p.title} | 3D Printopia Verse`, description: p.excerpt, type: "article" }),
+      meta: seo({
+        title: `${p.title} | 3D Printopia Verse`,
+        description: p.excerpt,
+        type: "article",
+      }),
       scripts: [
         {
           type: "application/ld+json",
@@ -114,6 +118,7 @@ function Post() {
                 src={p.image}
                 alt={p.title}
                 loading="lazy"
+                decoding="async"
                 width={900}
                 height={600}
                 className="aspect-16/10 w-full object-cover"

@@ -17,9 +17,21 @@ export const Route = createFileRoute("/custom-orders")({
 });
 
 const promises = [
-  { icon: Clock, title: "2-hour response", text: "Every enquiry receives a real reply from a designer within two working hours." },
-  { icon: ShieldCheck, title: "Fixed quotes", text: "The price you approve is the price you pay. No finishing surcharges." },
-  { icon: Check, title: "Approve before print", text: "You see a 360° render first. Revisions at that stage are unlimited and free." },
+  {
+    icon: Clock,
+    title: "2-hour response",
+    text: "Every enquiry receives a real reply from a designer within two working hours.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Fixed quotes",
+    text: "The price you approve is the price you pay. No finishing surcharges.",
+  },
+  {
+    icon: Check,
+    title: "Approve before print",
+    text: "You see a 360° render first. Revisions at that stage are unlimited and free.",
+  },
 ];
 
 const checklist = [
@@ -43,9 +55,7 @@ function CustomOrders() {
 
       <section className="container-lux grid gap-12 py-16 lg:grid-cols-[1fr_1.1fr]">
         <div>
-          <h2 className="font-display text-2xl font-bold text-ink">
-            What to send us
-          </h2>
+          <h2 className="font-display text-2xl font-bold text-ink">What to send us</h2>
           <ul className="mt-6 grid gap-3 text-sm text-muted-foreground">
             {checklist.map((c) => (
               <li key={c} className="flex gap-3">
@@ -71,8 +81,8 @@ function CustomOrders() {
           <div className="mt-10 rounded-3xl bg-spark p-6 text-primary-foreground">
             <p className="font-display text-lg font-bold">Prefer to talk it through?</p>
             <p className="mt-2 text-sm opacity-90">
-              Call {company.phone} or message us on WhatsApp — Monday to Saturday, 10 AM to 8
-              PM IST.
+              Call {company.phone} or message us on WhatsApp — Monday to Saturday, 10 AM to 8 PM
+              IST.
             </p>
           </div>
         </div>

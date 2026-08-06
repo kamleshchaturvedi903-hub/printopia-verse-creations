@@ -37,18 +37,17 @@ export function Product360Viewer() {
     return () => cancelAnimationFrame(raf);
   }, [interacting]);
 
-  const select = useCallback(
-    (n: number) => {
-      setPi((n + products360.length) % products360.length);
-      setAngle(-18);
-      setZoom(1);
-    },
-    [],
-  );
+  const select = useCallback((n: number) => {
+    setPi((n + products360.length) % products360.length);
+    setAngle(-18);
+    setZoom(1);
+  }, []);
 
   const frameSrc = frames
-    ? frames[((Math.round((angle / 360) * frames.length) % frames.length) + frames.length) %
-        frames.length]
+    ? frames[
+        ((Math.round((angle / 360) * frames.length) % frames.length) + frames.length) %
+          frames.length
+      ]
     : product.image;
 
   const fullscreen = () => {
@@ -100,7 +99,10 @@ export function Product360Viewer() {
         onTouchStart={(e) => {
           if (e.touches.length === 2) {
             const [a, b] = [e.touches[0], e.touches[1]];
-            pinch.current = { dist: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY), zoom };
+            pinch.current = {
+              dist: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY),
+              zoom,
+            };
             setInteracting(true);
           }
         }}

@@ -40,7 +40,6 @@ export const Reveal = memo(function Reveal({
   );
 });
 
-
 /* ---------- Section heading ---------- */
 export function SectionHeading({
   eyebrow,
@@ -75,7 +74,10 @@ export function SectionHeading({
 /* ---------- Breadcrumbs ---------- */
 export function Crumbs({ items }: { items: { label: string; to?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
+    <nav
+      aria-label="Breadcrumb"
+      className="flex flex-wrap items-center gap-1 text-xs text-muted-foreground"
+    >
       <Link to="/" className="hover:text-primary">
         Home
       </Link>
@@ -130,9 +132,7 @@ export function PageHero({
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {subtitle}
-          </p>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">{subtitle}</p>
         )}
         {children && <div className="mt-8">{children}</div>}
       </div>
@@ -159,6 +159,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             src={product.image}
             alt={`${product.name} — custom 3D printed by 3D Printopia Verse`}
             loading="lazy"
+            decoding="async"
             width={900}
             height={900}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -181,7 +182,11 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             <span className="text-xs text-muted-foreground">({product.reviews})</span>
           </div>
           <h3 className="mt-2 font-display text-base font-semibold text-ink">
-            <Link to="/products/$slug" params={{ slug: product.slug }} className="hover:text-primary">
+            <Link
+              to="/products/$slug"
+              params={{ slug: product.slug }}
+              className="hover:text-primary"
+            >
               {product.name}
             </Link>
           </h3>

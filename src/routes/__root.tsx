@@ -32,8 +32,8 @@ function NotFoundComponent() {
           This model didn't finish printing
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          The page you're looking for has moved or never existed. Let's get you back to
-          something beautiful — browse the collection or tell us what you'd like made.
+          The page you're looking for has moved or never existed. Let's get you back to something
+          beautiful — browse the collection or tell us what you'd like made.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button asChild variant="hero">

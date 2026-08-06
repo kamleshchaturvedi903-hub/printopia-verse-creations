@@ -65,10 +65,7 @@ function Story() {
               <div className="relative grid grid-cols-[minmax(0,4rem)_1fr] gap-6 pb-12">
                 <div className="relative">
                   <span className="font-display text-lg font-bold text-gradient">{t.year}</span>
-                  <span
-                    aria-hidden
-                    className="absolute left-2 top-8 h-full w-px bg-border"
-                  />
+                  <span aria-hidden className="absolute left-2 top-8 h-full w-px bg-border" />
                 </div>
                 <div className="rounded-3xl border bg-card p-6">
                   <h2 className="font-display text-lg font-semibold text-ink">{t.title}</h2>
@@ -84,6 +81,7 @@ function Story() {
             src={images.couple}
             alt="Hand-painted 3D printed couple figurine made at our Ahmedabad studio"
             loading="lazy"
+            decoding="async"
             width={900}
             height={900}
             className="mx-auto mt-8 aspect-16/9 w-full max-w-4xl rounded-4xl border object-cover shadow-lift"

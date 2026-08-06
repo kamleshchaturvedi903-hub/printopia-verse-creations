@@ -21,7 +21,13 @@ const plans = [
     price: "₹2,299",
     unit: "per figure",
     text: "One person, 10 cm tall, hand-painted with a plain base. The perfect first order.",
-    features: ["10 cm height", "Single figure", "Hand-painted finish", "360° preview", "8–12 day delivery"],
+    features: [
+      "10 cm height",
+      "Single figure",
+      "Hand-painted finish",
+      "360° preview",
+      "8–12 day delivery",
+    ],
   },
   {
     name: "Premium",
@@ -98,7 +104,9 @@ function Pricing() {
                 >
                   {p.price}
                 </p>
-                <p className={`text-xs ${p.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                <p
+                  className={`text-xs ${p.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}
+                >
                   {p.unit}
                 </p>
                 <p
@@ -115,11 +123,7 @@ function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  asChild
-                  variant={p.featured ? "onDark" : "hero"}
-                  className="mt-8 w-full"
-                >
+                <Button asChild variant={p.featured ? "onDark" : "hero"} className="mt-8 w-full">
                   <Link to="/custom-orders">Get this quoted</Link>
                 </Button>
               </div>
@@ -147,8 +151,8 @@ function Pricing() {
             ))}
           </div>
           <p className="mx-auto mt-6 max-w-3xl text-center text-xs text-muted-foreground">
-            Rush production adds 25%. International shipping from ₹1,800 depending on
-            destination and insured value. GST applicable as per Indian tax law.
+            Rush production adds 25%. International shipping from ₹1,800 depending on destination
+            and insured value. GST applicable as per Indian tax law.
           </p>
         </div>
       </section>

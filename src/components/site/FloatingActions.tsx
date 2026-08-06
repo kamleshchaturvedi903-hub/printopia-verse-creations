@@ -22,7 +22,6 @@ export function FloatingActions() {
     };
   }, []);
 
-
   return (
     <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3">
       {show && (
@@ -76,8 +75,8 @@ export function CookieConsent() {
     <div className="fixed bottom-4 left-4 z-40 max-w-sm rounded-3xl border bg-popover p-5 shadow-lift">
       <p className="font-display text-sm font-semibold text-ink">We use cookies</p>
       <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-        We use essential cookies to run this site and analytics cookies to understand what
-        our customers love. You can change your mind at any time.
+        We use essential cookies to run this site and analytics cookies to understand what our
+        customers love. You can change your mind at any time.
       </p>
       <div className="mt-4 flex gap-2">
         <Button size="sm" variant="hero" onClick={() => close("all")}>

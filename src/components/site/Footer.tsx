@@ -34,6 +34,7 @@ export function Footer() {
                 src={logoAsset.url}
                 alt="3D Printopia Verse logo"
                 loading="lazy"
+                decoding="async"
                 width={44}
                 height={44}
                 className="h-11 w-11 object-contain"
@@ -44,8 +45,8 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            A premium custom 3D printing studio in Ahmedabad, crafting personalised
-            figurines, collectibles and corporate gifts for customers across India.
+            A premium custom 3D printing studio in Ahmedabad, crafting personalised figurines,
+            collectibles and corporate gifts for customers across India.
           </p>
           <a
             href={company.instagram}
@@ -127,7 +128,12 @@ export function Footer() {
             </li>
             <li className="flex gap-3">
               <MessageCircle className="h-4 w-4 shrink-0 text-primary" />
-              <a href={company.whatsappHref} target="_blank" rel="noreferrer" className="hover:text-primary">
+              <a
+                href={company.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-primary"
+              >
                 WhatsApp us
               </a>
             </li>
@@ -173,8 +179,8 @@ export function Footer() {
       <div className="border-t">
         <div className="container-lux flex flex-col gap-3 py-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} {company.name}. All rights reserved. GSTIN
-            available on request.
+            © {new Date().getFullYear()} {company.name}. All rights reserved. GSTIN available on
+            request.
           </p>
           <div className="flex flex-wrap gap-4">
             {policyLinks.map((l) => (

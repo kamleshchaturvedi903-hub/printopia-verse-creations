@@ -61,8 +61,8 @@ function CategoryPage() {
               Every piece in this category is made to order
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Send us your reference — a photo, a sketch, a screenshot or a brand guideline —
-              and we'll sculpt it from scratch. Quotes within two working hours.
+              Send us your reference — a photo, a sketch, a screenshot or a brand guideline — and
+              we'll sculpt it from scratch. Quotes within two working hours.
             </p>
             <Button asChild variant="hero" className="mt-6">
               <Link to="/custom-orders">Request a quote</Link>

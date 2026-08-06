@@ -52,7 +52,6 @@ export function ModelViewer({
     };
   }, []);
 
-
   const requestFullscreen = () => {
     const el = wrapRef.current;
     if (!el) return;

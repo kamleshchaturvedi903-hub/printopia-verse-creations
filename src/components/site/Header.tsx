@@ -102,7 +102,10 @@ export function Header() {
       </div>
 
       <div
-        className={cn("transition-colors duration-300", scrolled ? "glass shadow-soft" : "bg-background")}
+        className={cn(
+          "transition-colors duration-300",
+          scrolled ? "glass shadow-soft" : "bg-background",
+        )}
         onMouseLeave={() => setMega(false)}
       >
         <div className="container-lux grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 py-2.5 lg:flex lg:justify-between lg:gap-4">
@@ -262,8 +265,8 @@ export function Header() {
             <div className="rounded-3xl bg-spark p-5 text-primary-foreground">
               <p className="font-display text-base font-bold">Not sure what to order?</p>
               <p className="mt-2 text-sm opacity-90">
-                Send a photo on WhatsApp. Our design team replies with a concept and price
-                within two hours.
+                Send a photo on WhatsApp. Our design team replies with a concept and price within
+                two hours.
               </p>
               <Button asChild variant="onDark" size="sm" className="mt-4">
                 <a href={company.whatsappHref} target="_blank" rel="noreferrer">

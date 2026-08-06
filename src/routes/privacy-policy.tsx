@@ -57,7 +57,14 @@ export const Route = createFileRoute("/privacy-policy")({
         {
           heading: "6. Contact",
           body: [
-            company.name + ", " + company.address + ". Phone: " + company.phone + ". Email: " + company.email + ".",
+            company.name +
+              ", " +
+              company.address +
+              ". Phone: " +
+              company.phone +
+              ". Email: " +
+              company.email +
+              ".",
           ],
         },
       ]}

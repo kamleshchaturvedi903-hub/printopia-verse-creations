@@ -93,9 +93,21 @@ function HowItWorks() {
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
-              { m: "Photopolymer resin", use: "Display figurines, collectibles, faces", why: "25-micron detail, captures eyelashes and fabric weave." },
-              { m: "PLA+ / PETG", use: "Kids' toys, articulated models", why: "Impact resistant, child-safe, survives being dropped." },
-              { m: "ASA", use: "Nameplates, planters, outdoor decor", why: "UV stable — resists yellowing in Indian sunlight." },
+              {
+                m: "Photopolymer resin",
+                use: "Display figurines, collectibles, faces",
+                why: "25-micron detail, captures eyelashes and fabric weave.",
+              },
+              {
+                m: "PLA+ / PETG",
+                use: "Kids' toys, articulated models",
+                why: "Impact resistant, child-safe, survives being dropped.",
+              },
+              {
+                m: "ASA",
+                use: "Nameplates, planters, outdoor decor",
+                why: "UV stable — resists yellowing in Indian sunlight.",
+              },
             ].map((x) => (
               <div key={x.m} className="rounded-3xl border bg-card p-7">
                 <h3 className="font-display text-base font-semibold text-ink">{x.m}</h3>
