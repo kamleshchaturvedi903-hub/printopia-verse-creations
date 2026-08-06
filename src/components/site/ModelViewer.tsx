@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { ClientOnly } from "@tanstack/react-router";
+import { onIdle } from "@/lib/in-view";
 import { Expand, Maximize2, RotateCcw } from "lucide-react";
 
 const ModelCanvas = lazy(() => import("@/components/site/ModelCanvas"));
