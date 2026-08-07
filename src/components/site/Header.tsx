@@ -251,6 +251,8 @@ export function Header() {
                       alt={`${c.name} 3D printed products`}
                       loading="lazy"
                       decoding="async"
+                      width={320}
+                      height={240}
                       className="mb-2 aspect-4/3 w-full rounded-xl object-cover"
                     />
                     <p className="font-display text-[13px] font-semibold leading-tight text-ink">
