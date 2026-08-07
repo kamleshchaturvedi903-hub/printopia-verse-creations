@@ -28,7 +28,7 @@ function DeferredToaster() {
   if (!ready) return null;
   return (
     <Suspense fallback={null}>
-      <DeferredToaster />
+      <Toaster />
     </Suspense>
   );
 }
