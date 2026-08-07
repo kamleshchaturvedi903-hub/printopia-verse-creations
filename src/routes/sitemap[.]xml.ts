@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { categories, products } from "@/lib/site";
+import { blogPosts, categories, products } from "@/lib/site";
 
 const BASE_URL = "https://printopia-verse-creations.lovable.app";
 
@@ -48,6 +48,11 @@ export const Route = createFileRoute("/sitemap.xml")({
           })),
           ...products.map((p) => ({
             path: `/products/${p.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.6",
+          })),
+          ...blogPosts.map((p) => ({
+            path: `/blog/${p.slug}`,
             changefreq: "monthly" as const,
             priority: "0.6",
           })),
