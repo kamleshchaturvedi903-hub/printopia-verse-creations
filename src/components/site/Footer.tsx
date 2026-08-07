@@ -52,7 +52,7 @@ export function Footer() {
             href={company.instagram}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/15"
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-2 text-sm font-semibold text-primary-strong transition-colors hover:bg-primary/15"
           >
             <Instagram className="h-4 w-4" /> {company.instagramHandle}
           </a>

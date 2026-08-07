@@ -101,7 +101,7 @@ function Hero() {
       />
       <div className="container-lux grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_1fr] lg:py-24">
         <div className="animate-rise">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-strong">
             <Sparkles className="h-3.5 w-3.5" /> Ahmedabad · Delivering across India
           </span>
 
@@ -921,7 +921,7 @@ function InstagramStrip() {
           />
           <div className="relative grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-center">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-strong">
                 <Instagram className="h-3.5 w-3.5" /> Instagram
               </span>
               <h2 className="mt-4 text-balance text-3xl font-bold leading-tight text-ink sm:text-4xl">
