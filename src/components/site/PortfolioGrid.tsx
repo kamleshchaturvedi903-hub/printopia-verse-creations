@@ -97,6 +97,9 @@ export function PortfolioGrid({ grouped = true }: { grouped?: boolean }) {
             <img
               src={shown[lightbox].image}
               alt={shown[lightbox].alt}
+              decoding="async"
+              width={1200}
+              height={900}
               className="max-h-[75dvh] w-full bg-night object-contain"
             />
             <figcaption className="glass flex items-center justify-between gap-4 px-5 py-4">
