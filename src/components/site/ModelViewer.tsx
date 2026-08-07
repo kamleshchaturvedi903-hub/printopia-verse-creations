@@ -62,25 +62,27 @@ export function ModelViewer({
   return (
     <div
       ref={wrapRef}
-      role="img"
+      role="group"
       aria-label={label}
       onDoubleClick={() => orbitRef.current?.reset()}
       className={`relative touch-none select-none ${className}`}
     >
-      <ClientOnly fallback={<Skeleton />}>
-        {visible ? (
-          <Suspense fallback={<Skeleton />}>
-            <ModelCanvas
-              autoRotateSpeed={autoRotateSpeed}
-              src={src}
-              controlsRef={orbitRef}
-              active={active}
-            />
-          </Suspense>
-        ) : (
-          <Skeleton />
-        )}
-      </ClientOnly>
+      <div role="img" aria-label={label} className="h-full w-full">
+        <ClientOnly fallback={<Skeleton />}>
+          {visible ? (
+            <Suspense fallback={<Skeleton />}>
+              <ModelCanvas
+                autoRotateSpeed={autoRotateSpeed}
+                src={src}
+                controlsRef={orbitRef}
+                active={active}
+              />
+            </Suspense>
+          ) : (
+            <Skeleton />
+          )}
+        </ClientOnly>
+      </div>
 
       {controls && (
         <div className="absolute bottom-3 right-3 flex gap-2">
