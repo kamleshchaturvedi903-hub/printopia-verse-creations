@@ -248,7 +248,7 @@ function BestSellers() {
 
         <div className="mt-16 rounded-4xl border bg-card p-6 md:p-10">
           <div className="max-w-xl">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-strong">
               New arrivals
             </span>
             <h3 className="mt-3 font-display text-2xl font-bold text-ink">
