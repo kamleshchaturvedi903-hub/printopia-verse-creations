@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Camera, Check, Palette, Sparkles } from "lucide-react";
 import { images, products } from "@/lib/site";
-import { seo, faqSchema } from "@/lib/seo";
+import { seo, faqSchema, canonical } from "@/lib/seo";
 import { CtaBand, PageHero, ProductCard, Reveal, SectionHeading } from "@/components/site/ui";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import {
@@ -34,10 +34,12 @@ const pageFaqs = [
 export const Route = createFileRoute("/personalized-figurines")({
   head: () => ({
     meta: seo({
+      path: "/personalized-figurines",
       title: "Personalised 3D Printed Figurines From Your Photos | 3D Printopia Verse",
       description:
         "Custom human figurines sculpted from your photographs — miniature you, couples, families, babies and pets. Hand-painted resin, free 360° preview, delivery in 8–14 days.",
     }),
+    links: canonical("/personalized-figurines"),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema(pageFaqs)) }],
   }),
   component: Personalized,

@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check, Instagram, MessageCircle, Ruler, Star, Truck } from "lucide-react";
 import { categories, company, products } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical, breadcrumbSchema } from "@/lib/seo";
 import { CtaBand, Crumbs, ProductCard } from "@/components/site/ui";
 import { Button } from "@/components/ui/button";
 
@@ -26,8 +26,21 @@ export const Route = createFileRoute("/products/$slug")({
         title: `${p.name} — Custom 3D Printed | 3D Printopia Verse`,
         description: `${p.short} From ₹${p.price.toLocaleString("en-IN")}. Hand-painted, ${p.turnaround} delivery, shipped across India.`,
         type: "product",
+        path: `/products/${p.slug}`,
+        image: p.image?.startsWith("https://") ? p.image : undefined,
       }),
+      links: canonical(`/products/${p.slug}`),
       scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Products", path: "/products" },
+              { name: p.name, path: `/products/${p.slug}` },
+            ]),
+          ),
+        },
         {
           type: "application/ld+json",
           children: JSON.stringify({

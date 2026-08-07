@@ -1,16 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { CtaBand, PageHero, Reveal, SectionHeading } from "@/components/site/ui";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: seo({
+      path: "/pricing",
       title: "3D Printing Prices in India — Figurine Cost Guide | 3D Printopia Verse",
       description:
         "Transparent pricing for custom 3D printed figurines with 35% off: single person from ₹2,299, couples from ₹3,299, pets from ₹1,599, corporate gifting from ₹519 per unit.",
     }),
+    links: canonical("/pricing"),
   }),
   component: Pricing,
 });

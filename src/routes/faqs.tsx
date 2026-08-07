@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { faqs, company } from "@/lib/site";
-import { seo, faqSchema } from "@/lib/seo";
+import { seo, faqSchema, canonical } from "@/lib/seo";
 import { CtaBand, PageHero } from "@/components/site/ui";
 import {
   Accordion,
@@ -13,10 +13,12 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: seo({
+      path: "/faqs",
       title: "FAQs — Custom 3D Printing Questions Answered | 3D Printopia Verse",
       description:
         "How many photos do we need? How much does a figurine cost? How long does delivery take? Answers to the questions customers ask before ordering custom 3D printed gifts.",
     }),
+    links: canonical("/faqs"),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema(faqs)) }],
   }),
   component: Faqs,

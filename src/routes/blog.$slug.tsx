@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { blogPosts } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical, breadcrumbSchema } from "@/lib/seo";
 import { CtaBand, Crumbs } from "@/components/site/ui";
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -24,8 +24,20 @@ export const Route = createFileRoute("/blog/$slug")({
         title: `${p.title} | 3D Printopia Verse`,
         description: p.excerpt,
         type: "article",
+        path: `/blog/${p.slug}`,
       }),
+      links: canonical(`/blog/${p.slug}`),
       scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Blog", path: "/blog" },
+              { name: p.title, path: `/blog/${p.slug}` },
+            ]),
+          ),
+        },
         {
           type: "application/ld+json",
           children: JSON.stringify({

@@ -29,7 +29,7 @@ import {
   testimonials,
   trustBadges,
 } from "@/lib/site";
-import { seo, faqSchema } from "@/lib/seo";
+import { seo, faqSchema, canonical } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Counter, CtaBand, ProductCard, Reveal, SectionHeading } from "@/components/site/ui";
 import { ModelViewer } from "@/components/site/ModelViewer";
@@ -46,10 +46,12 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: seo({
+      path: "/",
       title: "Custom 3D Printed Figurines & Personalised Gifts | 3D Printopia Verse",
       description:
         "Turn photos into hand-painted 3D printed figurines. Personalised human figures, anime collectibles, pet miniatures, wedding toppers & corporate gifts. Ahmedabad studio, delivered across India.",
     }),
+    links: canonical("/"),
     scripts: [
       {
         type: "application/ld+json",
@@ -99,7 +101,7 @@ function Hero() {
       />
       <div className="container-lux grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_1fr] lg:py-24">
         <div className="animate-rise">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-strong">
             <Sparkles className="h-3.5 w-3.5" /> Ahmedabad · Delivering across India
           </span>
 
@@ -246,7 +248,7 @@ function BestSellers() {
 
         <div className="mt-16 rounded-4xl border bg-card p-6 md:p-10">
           <div className="max-w-xl">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-strong">
               New arrivals
             </span>
             <h3 className="mt-3 font-display text-2xl font-bold text-ink">
@@ -919,7 +921,7 @@ function InstagramStrip() {
           />
           <div className="relative grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-center">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-strong">
                 <Instagram className="h-3.5 w-3.5" /> Instagram
               </span>
               <h2 className="mt-4 text-balance text-3xl font-bold leading-tight text-ink sm:text-4xl">

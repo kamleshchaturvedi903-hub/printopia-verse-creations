@@ -1,17 +1,20 @@
 import { company } from "./site";
 
 const SITE_NAME = "3D Printopia Verse";
+export const SITE_URL = "https://printopia-verse-creations.lovable.app";
 
 export function seo({
   title,
   description,
   image,
   type = "website",
+  path,
 }: {
   title: string;
   description: string;
   image?: string;
   type?: string;
+  path?: string;
 }) {
   const meta: Array<Record<string, string>> = [
     { title },
@@ -24,11 +27,31 @@ export function seo({
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
   ];
+  if (path) meta.push({ property: "og:url", content: `${SITE_URL}${path}` });
   if (image?.startsWith("https://")) {
     meta.push({ property: "og:image", content: image });
     meta.push({ name: "twitter:image", content: image });
   }
   return meta;
+}
+
+/** Self-referencing canonical for a leaf route. Never add this to __root. */
+export function canonical(path: string) {
+  return [{ rel: "canonical", href: `${SITE_URL}${path}` }];
+}
+
+/** BreadcrumbList JSON-LD for deep pages. */
+export function breadcrumbSchema(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: `${SITE_URL}${it.path}`,
+    })),
+  };
 }
 
 export function jsonLd(data: unknown) {

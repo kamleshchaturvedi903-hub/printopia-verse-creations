@@ -57,7 +57,7 @@ export function SectionHeading({
   return (
     <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center")}>
       {eyebrow && (
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-strong">
           {eyebrow}
         </span>
       )}
@@ -124,7 +124,7 @@ export function PageHero({
       <div className="container-lux relative py-16 md:py-24">
         <Crumbs items={crumbs} />
         {eyebrow && (
-          <span className="mt-6 inline-block rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+          <span className="mt-6 inline-block rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-strong">
             {eyebrow}
           </span>
         )}

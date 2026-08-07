@@ -1,17 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Award, HeartHandshake, Layers, Users } from "lucide-react";
 import { company, images, stats } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { Counter, CtaBand, PageHero, Reveal, SectionHeading } from "@/components/site/ui";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: seo({
+      path: "/about",
       title: "About Our 3D Printing Studio in Ahmedabad | 3D Printopia Verse",
       description:
         "Meet the sculptors, painters and engineers behind 3D Printopia Verse — a premium custom 3D printing studio in Vastrapur, Ahmedabad serving customers across India.",
     }),
+    links: canonical("/about"),
   }),
   component: About,
 });

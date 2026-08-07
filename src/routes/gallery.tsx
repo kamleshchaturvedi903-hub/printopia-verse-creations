@@ -1,15 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { CtaBand, PageHero } from "@/components/site/ui";
 import { PortfolioGrid } from "@/components/site/PortfolioGrid";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: seo({
+      path: "/gallery",
       title: "Printing & 3D Printing Portfolio by Category | 3D Printopia Verse",
       description:
         "Browse our portfolio by category — business cards, brochures, flyers, posters, catalogues, packaging, wedding cards, banners, corporate branding and 3D printed products.",
     }),
+    links: canonical("/gallery"),
   }),
   component: Gallery,
 });
