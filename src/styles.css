@@ -78,7 +78,7 @@
   --card-foreground: oklch(0.279 0.041 260.03);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.279 0.041 260.03);
-  --primary: oklch(0.546 0.215 262.9);
+  --primary: oklch(0.505 0.215 262.9);
   --primary-foreground: oklch(0.99 0.005 260);
   --primary-glow: oklch(0.68 0.17 256);
   --secondary: oklch(0.968 0.007 247.9);
