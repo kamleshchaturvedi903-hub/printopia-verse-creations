@@ -1,16 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Star } from "lucide-react";
 import { testimonials, stats } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { Counter, CtaBand, PageHero, Reveal } from "@/components/site/ui";
 
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: seo({
+      path: "/testimonials",
       title: "Customer Reviews of Our 3D Printed Figurines | 3D Printopia Verse",
       description:
         "Read verified reviews from customers across India who ordered personalised 3D printed figurines, pet miniatures, wedding toppers and corporate gifts.",
     }),
+    links: canonical("/testimonials"),
   }),
   component: Testimonials,
 });

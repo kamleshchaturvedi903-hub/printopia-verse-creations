@@ -1,16 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { images } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { CtaBand, PageHero, Reveal } from "@/components/site/ui";
 
 export const Route = createFileRoute("/our-story")({
   head: () => ({
     meta: seo({
+      path: "/our-story",
       title: "Our Story — From One Printer to a Pan-India Studio | 3D Printopia Verse",
       description:
         "The story of 3D Printopia Verse: how a hobby printer in a Vastrapur apartment grew into a premium custom 3D printing studio delivering personalised figurines across India.",
       type: "article",
     }),
+    links: canonical("/our-story"),
   }),
   component: Story,
 });

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Boxes, Building2, Package, Timer } from "lucide-react";
 import { clients, images } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { CtaBand, PageHero, Reveal, SectionHeading } from "@/components/site/ui";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Button } from "@/components/ui/button";
@@ -9,10 +9,12 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/business-gifts")({
   head: () => ({
     meta: seo({
+      path: "/business-gifts",
       title: "Corporate Gifts & Branded 3D Printed Awards in Bulk | 3D Printopia Verse",
       description:
         "Custom 3D printed corporate gifts, branded trophies, desk awards, nameplates and employee gifting from 25 to 5,000 units. Brand-colour matched, individually engraved, delivered across India.",
     }),
+    links: canonical("/business-gifts"),
   }),
   component: Business,
 });

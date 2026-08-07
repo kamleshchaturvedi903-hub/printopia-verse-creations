@@ -29,7 +29,7 @@ import {
   testimonials,
   trustBadges,
 } from "@/lib/site";
-import { seo, faqSchema } from "@/lib/seo";
+import { seo, faqSchema, canonical } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Counter, CtaBand, ProductCard, Reveal, SectionHeading } from "@/components/site/ui";
 import { ModelViewer } from "@/components/site/ModelViewer";
@@ -46,10 +46,12 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: seo({
+      path: "/",
       title: "Custom 3D Printed Figurines & Personalised Gifts | 3D Printopia Verse",
       description:
         "Turn photos into hand-painted 3D printed figurines. Personalised human figures, anime collectibles, pet miniatures, wedding toppers & corporate gifts. Ahmedabad studio, delivered across India.",
     }),
+    links: canonical("/"),
     scripts: [
       {
         type: "application/ld+json",

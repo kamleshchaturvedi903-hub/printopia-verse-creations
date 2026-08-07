@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import { categories, products } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { PageHero, ProductCard } from "@/components/site/ui";
 import { CtaBand } from "@/components/site/ui";
 import { Button } from "@/components/ui/button";
@@ -10,10 +10,12 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: seo({
+      path: "/products",
       title: "Custom 3D Printed Products & Figurines Online | 3D Printopia Verse",
       description:
         "Browse personalised 3D printed figurines, anime collectibles, pet miniatures, robot toys, scale vehicles, wedding toppers and corporate gifts. Filter by category, price and delivery time.",
     }),
+    links: canonical("/products"),
   }),
   component: Products,
 });

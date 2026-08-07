@@ -1,15 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { company } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { LegalPage } from "@/components/site/LegalPage";
 
 export const Route = createFileRoute("/terms-conditions")({
   head: () => ({
     meta: seo({
+      path: "/terms-conditions",
       title: "Terms & Conditions | 3D Printopia Verse",
       description:
         "The terms governing custom 3D printing orders with 3D Printopia Verse: quotations, approvals, intellectual property, production timelines, payment and liability.",
     }),
+    links: canonical("/terms-conditions"),
   }),
   component: () => (
     <LegalPage

@@ -1,15 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { company } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { LegalPage } from "@/components/site/LegalPage";
 
 export const Route = createFileRoute("/refund-policy")({
   head: () => ({
     meta: seo({
+      path: "/refund-policy",
       title: "Refund & Cancellation Policy | 3D Printopia Verse",
       description:
         "When you can cancel a custom 3D printing order, how refunds are calculated at each production stage, and how quickly money is returned to your account.",
     }),
+    links: canonical("/refund-policy"),
   }),
   component: () => (
     <LegalPage

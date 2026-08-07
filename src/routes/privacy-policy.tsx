@@ -1,15 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { company } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { LegalPage } from "@/components/site/LegalPage";
 
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: seo({
+      path: "/privacy-policy",
       title: "Privacy Policy | 3D Printopia Verse",
       description:
         "How 3D Printopia Verse collects, uses, stores and protects your personal data, photographs and reference files when you order custom 3D printed products.",
     }),
+    links: canonical("/privacy-policy"),
   }),
   component: () => (
     <LegalPage

@@ -1,15 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { company } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { LegalPage } from "@/components/site/LegalPage";
 
 export const Route = createFileRoute("/shipping-returns")({
   head: () => ({
     meta: seo({
+      path: "/shipping-returns",
       title: "Shipping & Returns Policy | 3D Printopia Verse",
       description:
         "Delivery timelines and costs across India, plus how returns and damage replacements work for custom 3D printed products.",
     }),
+    links: canonical("/shipping-returns"),
   }),
   component: () => (
     <LegalPage

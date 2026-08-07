@@ -1,15 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { CtaBand, PageHero, Reveal, SectionHeading } from "@/components/site/ui";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: seo({
+      path: "/how-it-works",
       title: "How Custom 3D Printing Works — Our 6-Stage Process | 3D Printopia Verse",
       description:
         "From your first photo to a hand-painted figurine on your shelf: sculpting, 360° preview approval, resin printing, finishing, quality control and insured delivery explained.",
     }),
+    links: canonical("/how-it-works"),
   }),
   component: HowItWorks,
 });

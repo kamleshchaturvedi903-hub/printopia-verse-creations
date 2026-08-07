@@ -1,17 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, Clock, ShieldCheck } from "lucide-react";
 import { company } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { CtaBand, PageHero } from "@/components/site/ui";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/custom-orders")({
   head: () => ({
     meta: seo({
+      path: "/custom-orders",
       title: "Custom 3D Printing Orders & Free Quote Request | 3D Printopia Verse",
       description:
         "Upload your photos or 3D files and get a fixed custom 3D printing quote within 2 working hours. Bespoke figurines, collectibles, prototypes and bulk gifting.",
     }),
+    links: canonical("/custom-orders"),
   }),
   component: CustomOrders,
 });

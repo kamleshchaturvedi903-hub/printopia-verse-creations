@@ -1,17 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock, Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { company } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { CtaBand, PageHero } from "@/components/site/ui";
 import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: seo({
+      path: "/contact",
       title: "Contact Our 3D Printing Studio in Ahmedabad | 3D Printopia Verse",
       description:
         "Call +91 93992 34699, WhatsApp us or visit our Vastrapur studio at A13 Chandrapuri Apartment, Ahmedabad 380015. Quotes answered within 2 working hours.",
     }),
+    links: canonical("/contact"),
   }),
   component: Contact,
 });

@@ -1,16 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { blogPosts } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical } from "@/lib/seo";
 import { CtaBand, PageHero, Reveal } from "@/components/site/ui";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: seo({
+      path: "/blog",
       title: "3D Printing Blog — Gift Guides & Studio Insights | 3D Printopia Verse",
       description:
         "Guides on custom 3D printing, personalised gifts, anime collectibles, corporate gifting and print technology, written by the sculptors and technicians in our studio.",
     }),
+    links: canonical("/blog"),
   }),
   component: Blog,
 });
