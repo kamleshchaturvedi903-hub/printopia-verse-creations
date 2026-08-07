@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { categories, products } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { seo, canonical, breadcrumbSchema } from "@/lib/seo";
 import { CtaBand, PageHero, ProductCard } from "@/components/site/ui";
 import { Button } from "@/components/ui/button";
 
@@ -24,7 +24,21 @@ export const Route = createFileRoute("/category/$slug")({
       meta: seo({
         title: `${c.name} — Custom 3D Printed | 3D Printopia Verse`,
         description: `${c.blurb} Prices from ₹${c.from}. Hand-painted in Ahmedabad, delivered across India.`,
+        path: `/category/${c.slug}`,
       }),
+      links: canonical(`/category/${c.slug}`),
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Products", path: "/products" },
+              { name: c.name, path: `/category/${c.slug}` },
+            ]),
+          ),
+        },
+      ],
     };
   },
   component: CategoryPage,
